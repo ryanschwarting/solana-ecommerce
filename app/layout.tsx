@@ -45,7 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={font.className}>
-      <body className="px-28 min-h-screen flex flex-col">
+      <body className="px-28 min-h-screen flex flex-col bg-black">
         <AppWalletProvider>
           <ShoppingCartProvider>
             <div className="py-4">

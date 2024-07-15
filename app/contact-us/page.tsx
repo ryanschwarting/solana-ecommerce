@@ -65,13 +65,13 @@ export default function Pages() {
   return (
     <div className="flex flex-col md:flex-row justify-center  space-y-4 md:space-y-0 md:space-x-8 pt-10">
       <div className="flex flex-col p-4 md:p-0 lg:p-0 items-center space-y-4 md:space-y-0 md:items-start">
-        <h2 className="font-poppins text-white font-medium md:text-[48px] text-[24px] pb-4 relative">
+        <h2 className="font-poppins text-white font-medium md:text-[32px] text-[24px] pb-4 relative">
           Write Me
           <span className="absolute left-0 bottom-[0px] md:left-5 md:bottom-[8px] w-[100px] h-[2px] bg-[#14F195]"></span>
         </h2>
         <a
           href="mailto:0xKaktos@gmail.com"
-          className="text-[#14F195] pt-8 inline-block underline text-[14px] md:text-[24px] tracking-tight transform transition-transform duration-300 hover:scale-95"
+          className="text-[#14F195] pt-8 inline-block underline text-[14px] tracking-tight transform transition-transform duration-300 hover:scale-95"
         >
           0xKaktos@gmail.com
         </a>
@@ -81,7 +81,7 @@ export default function Pages() {
         <form onSubmit={handleSubmit} className="flex flex-col gap-6 pt-2">
           <div className="w-full">
             <label
-              className="block text-white mb-2 font-medium text-[12px] lg:text-[20px]"
+              className="block text-white mb-2 font-medium text-[12px] lg:text-[14px]"
               htmlFor="firstName"
             >
               First Name *
@@ -98,7 +98,7 @@ export default function Pages() {
           </div>
           <div className="w-full">
             <label
-              className="block text-white mb-2 font-medium text-[12px] lg:text-[20px]"
+              className="block text-white mb-2 font-medium text-[12px] lg:text-[14px]"
               htmlFor="lastName"
             >
               Last Name *
@@ -115,7 +115,7 @@ export default function Pages() {
           </div>
           <div className="w-full">
             <label
-              className="block text-white mb-2 font-medium text-[12px] lg:text-[20px]"
+              className="block text-white mb-2 font-medium text-[12px] lg:text-[14px]"
               htmlFor="email"
             >
               Email *
@@ -132,7 +132,7 @@ export default function Pages() {
           </div>
           <div className="w-full">
             <label
-              className="block text-white mb-2 font-medium text-[12px] lg:text-[20px]"
+              className="block text-white mb-2 font-medium text-[12px] lg:text-[14px]"
               htmlFor="mobile"
             >
               Mobile{" "}
@@ -149,7 +149,7 @@ export default function Pages() {
           </div>
           <div className="w-full">
             <label
-              className="block text-white mb-2 font-medium text-[12px] lg:text-[20px] "
+              className="block text-white mb-2 font-medium text-[12px] lg:text-[14px] "
               htmlFor="company"
             >
               Company{" "}
@@ -166,7 +166,7 @@ export default function Pages() {
           </div>
           <div className="w-full">
             <label
-              className="block text-white mb-2 font-medium text-[12px] lg:text-[20px]"
+              className="block text-white mb-2 font-medium text-[12px] lg:text-[14px]"
               htmlFor="message"
             >
               Message *
@@ -177,14 +177,14 @@ export default function Pages() {
               placeholder="Type your message"
               value={formState.message}
               onChange={handleChange}
-              className="p-2 w-full h-48 rounded-xl text-black text-[12px] md:text-[18px]"
+              className="p-2 w-full h-48 rounded-xl text-black text-[12px] md:text-[12px]"
               required
             />
           </div>
 
           <div className="w-full flex flex-col items-end md:flex-row md:justify-between space-y-4 md:space-y-0">
             {submitted && (
-              <div className="w-[160px] h-[32px] flex justify-center items-center font-semibold text-[12px] lg:text-[20px] text-[#14F195] bg-[#9945FF] border-l-2 border-l-[#14F195]">
+              <div className="w-[160px] h-[32px] flex justify-center items-center font-semibold text-[12px] lg:text-[12px] text-[#14F195] bg-[#9945FF] border-l-2 border-l-[#14F195]">
                 Submitted Successfully!
               </div>
             )}
@@ -192,7 +192,7 @@ export default function Pages() {
               type="submit"
               className="bg-[#14F195] text-black py-2 px-6 h-[44px] rounded-full flex items-center"
             >
-              <span className="mr-2 font-medium text-[12px] lg:text-[20px]">
+              <span className="mr-2 font-medium text-[12px] lg:text-[12px]">
                 Submit
               </span>
               <IoMdArrowDropright />

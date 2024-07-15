@@ -89,12 +89,12 @@ function Footer() {
           <div className="w-full lg:w-1/3 mb-8 lg:mb-0">
             <div className="flex flex-col">
               <p className="font-normal text-[14px] text-black leading-[20px] tracking-tight mt-4">
-                Contact me directly via email
+                Contact me directly
               </p>
               <p className="font-normal text-[14px] text-black leading-[20px] tracking-tight">
-                or form with any questions
+                with any questions.
               </p>
-              <a
+              {/* <a
                 href="mailto:0xKaktos@gmail.com"
                 className="text-[#14F195] mt-4 inline-block text-[14px] tracking-tight "
               >
@@ -104,7 +104,7 @@ function Footer() {
                 >
                   0xKaktos@gmail.com
                 </motion.button>
-              </a>
+              </a> */}
               <a
                 className="mt-4 text-[#14F195] text-[14px] tracking-tight  "
                 href="/contact-us"
@@ -121,7 +121,7 @@ function Footer() {
 
           <div className="w-full lg:w-1/3">
             <h2 className="ml-0 md:ml-1 font-normal text-black text-[14px] tracking-tight leading-[20px]">
-              Subscribe Now
+              Sign up to receieve news and updates.
             </h2>
             <form
               onSubmit={handleSubmit}
@@ -138,7 +138,7 @@ function Footer() {
                 type="submit"
                 className="bg-[#14F195] text-black font-medium text-[14px] leading-[24px] tracking-tight px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-95"
               >
-                Send
+                Sign Up
               </button>
             </form>
             {message && (
@@ -146,7 +146,7 @@ function Footer() {
             )}
           </div>
         </div>
-        <div className="flex flex-row justify-between items-center border-t pt-4 border-white">
+        <div className="flex flex-row justify-between items-center border-t pt-4 border-sol-green">
           <p className="text-black text-[14px] md:text-[14px] sm:mb-0 mr-2">
             &copy; 2024 Kaktos. All rights reserved.
           </p>

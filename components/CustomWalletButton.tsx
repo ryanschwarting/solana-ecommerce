@@ -181,7 +181,7 @@ export const CustomWalletButton = () => {
               whileHover={{ scale: 0.9 }}
               whileTap={{ scale: 0.8 }}
               onClick={() => setOpen(true)}
-              className="text-[12px] md:text-[18px] font-medium bg-white text-black h-[40px] md:h-[60px] w-[200px] rounded-xl"
+              className="text-[12px] md:text-[18px] font-medium border-2 border-white bg-black text-white h-[40px] md:h-[60px] w-[200px] rounded-xl"
             >
               {connecting ? "Connecting..." : "Select Wallet"}
             </motion.button>
@@ -191,7 +191,7 @@ export const CustomWalletButton = () => {
             <motion.button
               whileHover={{ scale: 0.9 }}
               whileTap={{ scale: 0.8 }}
-              className="flex bg-white text-[12px] md:text-[18px] font-medium text-black h-[40px] md:h-[60px] w-[200px] rounded-xl items-center"
+              className="flex bg-black text-[12px] md:text-[18px] font-medium border-2 border-white text-white h-[40px] md:h-[60px] w-[200px] rounded-xl items-center"
               onClick={() => setDropdownOpen(!dropdownOpen)}
             >
               {selectedWalletIcon && (
