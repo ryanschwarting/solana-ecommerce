@@ -3,7 +3,7 @@ export const assets = [
     image: "/images/1.png",
     id: 1,
     name: "Product 1",
-    price: 0.15,
+    price: 45,
     description:
       "This is a test product description. This is a test product description. This is a test product description.This is a test product description",
   },
@@ -11,7 +11,7 @@ export const assets = [
     image: "/images/2.png",
     id: 2,
     name: "Product 2",
-    price: 0.25,
+    price: 35,
     description:
       "This is a test product description. This is a test product description. This is a test product description.This is a test product description",
   },
@@ -19,7 +19,7 @@ export const assets = [
     image: "/images/3.png",
     id: 3,
     name: "Product 3",
-    price: 0.1,
+    price: 200,
     description:
       "This is a test product description. This is a test product description. This is a test product description.This is a test product description",
   },
@@ -27,7 +27,7 @@ export const assets = [
     image: "/images/4.png",
     id: 4,
     name: "Product 4",
-    price: 0.22,
+    price: 100,
     description:
       "This is a test product description. This is a test product description. This is a test product description.This is a test product description",
   },
@@ -35,7 +35,7 @@ export const assets = [
     image: "/images/5.png",
     id: 5,
     name: "Product 5",
-    price: 0.05,
+    price: 15,
     description:
       "This is a test product description. This is a test product description. This is a test product description.This is a test product description",
   },
@@ -43,7 +43,7 @@ export const assets = [
     image: "/images/6.png",
     id: 6,
     name: "Product 6",
-    price: 0.03,
+    price: 20,
     description:
       "This is a test product description. This is a test product description. This is a test product description.This is a test product description",
   },
@@ -51,7 +51,7 @@ export const assets = [
     image: "/images/7.png",
     id: 7,
     name: "Product 7",
-    price: 2,
+    price: 20,
     description:
       "This is a test product description. This is a test product description. This is a test product description.This is a test product description",
   },
@@ -59,7 +59,7 @@ export const assets = [
     image: "/images/8.png",
     id: 8,
     name: "Product 8",
-    price: 1.5,
+    price: 5,
     description:
       "This is a test product description. This is a test product description. This is a test product description.This is a test product description",
   },
@@ -67,7 +67,7 @@ export const assets = [
     image: "/images/9.png",
     id: 9,
     name: "Product 9",
-    price: 3,
+    price: 10,
     description:
       "This is a test product description. This is a test product description. This is a test product description.This is a test product description",
   },
@@ -75,7 +75,7 @@ export const assets = [
     image: "/images/10.png",
     id: 10,
     name: "Product 10",
-    price: 1.2,
+    price: 12,
     description:
       "This is a test product description. This is a test product description.This is a test product description.This is a test product description",
   },

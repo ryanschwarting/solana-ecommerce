@@ -1,6 +1,9 @@
+"use client";
 import { SiSolana } from "react-icons/si";
 import { useShoppingCart } from "../context/shoppingCart";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { getSolPrice } from "../utils/solPrice";
 
 export const ShoppingItem = ({
   image,
@@ -16,6 +19,19 @@ export const ShoppingItem = ({
   description: string;
 }) => {
   const { getItemQuantity } = useShoppingCart();
+  const [solPrice, setSolPrice] = useState<number | null>(null);
+
+  useEffect(() => {
+    const fetchPrice = async () => {
+      const price = await getSolPrice();
+      setSolPrice(price);
+    };
+
+    fetchPrice();
+  }, []);
+
+  const solEquivalent =
+    solPrice !== null ? (price / solPrice).toFixed(2) : "Loading...";
 
   return (
     <div className="flex flex-col items-center">
@@ -38,7 +54,14 @@ export const ShoppingItem = ({
             <span className="mr-1">
               <SiSolana />
             </span>
-            {price}
+            {solEquivalent !== "Loading..." ? (
+              <>
+                {solEquivalent} SOL{" "}
+                <span className="ml-1 text-gray-400">(${price})</span>
+              </>
+            ) : (
+              "Loading..."
+            )}
           </p>
         </div>
       </div>
