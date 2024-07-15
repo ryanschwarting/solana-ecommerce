@@ -1,0 +1,142 @@
+/* Relevant Styles for Image Rotation Effect with Text Overlay */
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-7px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  @keyframes rotateInfinite {
+    0% { transform: rotateY(0deg); } 
+    50% { transform:rotateY(30deg); }
+    100% { transform: rotateY(0deg); }
+  }
+  
+  .imageContainer {
+      width: 430px;
+      height: 620px;
+      perspective: 1500px;
+      transform-style: preserve-3d;
+    }
+    
+    .imageContent {
+      text-align: center;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 3s;
+      transform-style: preserve-3d;
+    }
+    
+    .imageContainer:hover .imageContent {
+      transform: rotateY(.5turn);
+    }
+    
+    .imageFront,
+    .imageBack {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      backface-visibility: hidden;
+      transform-style: preserve-3d;
+      display: grid;
+      align-content: center;
+      padding: 5em 3em; /* Adjust as needed */
+    }
+  
+    .descriptionText {
+      transform: translateZ(4rem);
+      transform-style: preserve-3d;
+      font-size: 2rem;
+      color: #b12121;
+  }
+    
+  .imageFront {
+    color: #333;
+    flex-direction: column;
+    z-index: 0; 
+  }
+  
+  .imageBack {
+    transform: rotateY(.5turn);
+    background: #000000;
+    z-index: 1;
+  }
+  
+    .limitedDesignText {
+      animation: float 2s infinite;
+    }
+  
+    /* .imageFront img {
+      animation: float 4s infinite;
+  } */
+  
+  .imageFront img {
+    animation: rotateInfinite 4s infinite;
+    backface-visibility: hidden;
+  }
+  
+    .imageFront::before {
+      content: '';
+      position: absolute;
+      top: 0.5em;
+      bottom: 0.5em;
+      left: 0.5em;
+      right: 0.5em;
+      border: 5px solid currentColor;
+      border-radius: 0.5rem; /* Rounded large */
+      transform: translateZ(3rem); /* Level one depth */
+    }
+  
+    .imageFront::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #f6f6f6;
+      border-radius: 0.5rem; /* Rounded large */
+      z-index: -1;
+  }
+  
+    .imageTitle {
+      font-size: 1.5rem;
+      transform: translateZ(7rem); /* Level three depth */
+      text-transform: uppercase;
+      justify-content: flex-start; /* Align children to the start of the container */
+  
+    }
+    .textContainer {
+      margin-right: 0;
+      transform-style: preserve-3d;
+  }
+    
+    .imageSubtitle {
+      transform: translateZ(6rem); /* Level two depth */
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: .4rem;
+      font-weight: 700; /* Bold */
+      opacity: .7;
+    }
+    
+    .imageBack {
+      transform: rotateY(.5turn);
+      background: #000000;
+      border-radius: 0.5rem; /* Rounded large */
+    }
+  
+    .imgWrapper {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      position: relative;
+  }
+  
+    /* .imageFront::before, .imageTitle, .imageSubtitle {
+      transform: translateZ(3rem); 
+  } */
+  
