@@ -55,19 +55,19 @@ export const LandingPage = () => {
       </div>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-10 select-none mb-10">
         {assets.map((asset, index) => {
-          // const [ref, inView] = useInView({
-          //   triggerOnce: true,
-          //   threshold: 0.1,
-          // });
+          const [ref, inView] = useInView({
+            triggerOnce: true,
+            threshold: 0.1,
+          });
 
           return (
             <Link href={`/item-detail/${asset.id}`} key={asset.image}>
               <motion.div
-              // ref={ref}
-              // variants={fadeInUp}
-              // initial="hidden"
-              // animate={inView ? "visible" : "hidden"}
-              // transition={{ duration: 0.1, delay: index * 0.2 }}
+                ref={ref}
+                variants={fadeInUp}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                transition={{ duration: 0.1, delay: index * 0.2 }}
               >
                 <ShoppingItem {...asset} />
               </motion.div>

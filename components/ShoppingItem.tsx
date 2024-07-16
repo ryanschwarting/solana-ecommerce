@@ -49,8 +49,8 @@ export const ShoppingItem = ({
           />
         </div>
         <div className="flex flex-col pt-2">
-          <p className="text-[24px] font-semibold">{name}</p>
-          <p className="flex text-[22px] items-center font-medium">
+          <p className="text-[24px] font-medium">{name}</p>
+          <p className="flex text-[22px] items-center font-normal">
             <span className="mr-1">
               <SiSolana />
             </span>

@@ -11,7 +11,7 @@ export const getSolPriceFromLocalStorage = () => {
   if (solPriceData) {
     const { price, timestamp } = JSON.parse(solPriceData);
     const now = new Date().getTime();
-    if (now - timestamp < 10 * 60 * 1000) {
+    if (now - timestamp < 5 * 60 * 1000) {
       return price;
     }
   }

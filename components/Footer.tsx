@@ -84,7 +84,7 @@ function Footer() {
 
   return (
     <div className="flex justify-center items-center px-2 md:px-0">
-      <div className="bg-[#9945FF] p-10 w-full mt-24 rounded-t-xl">
+      <div className="bg-sol-purple p-10 w-full mt-24 rounded-t-xl">
         <div className="flex flex-wrap justify-between mb-8">
           <div className="w-full lg:w-1/3 mb-8 lg:mb-0">
             <div className="flex flex-col">
@@ -94,19 +94,8 @@ function Footer() {
               <p className="font-normal text-[14px] text-black leading-[20px] tracking-tight">
                 with any questions.
               </p>
-              {/* <a
-                href="mailto:0xKaktos@gmail.com"
-                className="text-[#14F195] mt-4 inline-block text-[14px] tracking-tight "
-              >
-                <motion.button
-                  whileHover={{ scale: 0.9 }}
-                  whileTap={{ scale: 0.8 }}
-                >
-                  0xKaktos@gmail.com
-                </motion.button>
-              </a> */}
               <a
-                className="mt-4 text-[#14F195] text-[14px] tracking-tight  "
+                className="mt-4 text-sol-green text-[14px] tracking-tight  "
                 href="/contact-us"
               >
                 <motion.button
@@ -146,7 +135,7 @@ function Footer() {
             )}
           </div>
         </div>
-        <div className="flex flex-row justify-between items-center border-t pt-4 border-sol-green">
+        <div className="flex flex-row justify-between items-center border-t-2 pt-4 border-sol-green">
           <p className="text-black text-[14px] md:text-[14px] sm:mb-0 mr-2">
             &copy; 2024 Kaktos. All rights reserved.
           </p>
