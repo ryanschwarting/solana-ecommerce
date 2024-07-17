@@ -44,7 +44,6 @@ export const ShoppingItem = ({
             alt={name}
             width={400}
             height={400}
-            objectFit="cover"
             className="rounded-xl"
           />
         </div>

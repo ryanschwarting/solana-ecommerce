@@ -34,7 +34,7 @@ const CartCheckoutInner: React.FC<{ clientSecret: string; amount: number }> = ({
   const elements = useElements();
   const [errorMessage, setErrorMessage] = useState<string>();
   const [loading, setLoading] = useState(false);
-  const { clearCart } = useShoppingCart();
+  // const { clearCart } = useShoppingCart();
 
   const handlePayment = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -64,7 +64,6 @@ const CartCheckoutInner: React.FC<{ clientSecret: string; amount: number }> = ({
       setErrorMessage(error.message);
     } else {
       // Clear the cart
-      clearCart();
     }
 
     setLoading(false);
@@ -150,11 +149,11 @@ export const CartCheckout: React.FC = () => {
     setShowStripe(true);
   };
 
-  useEffect(() => {
-    if (transactionSuccessful) {
-      clearCart();
-    }
-  }, [transactionSuccessful]);
+  // useEffect(() => {
+  //   if (transactionSuccessful) {
+  //     clearCart();
+  //   }
+  // }, [transactionSuccessful]);
 
   if (cartItems.length === 0) {
     return (

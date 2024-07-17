@@ -37,10 +37,10 @@ export default function ShoppingItemDetail() {
 
   const quantity = getItemQuantity(matchingAsset.id);
 
-  const parallaxVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1.0 } },
-  };
+  // const parallaxVariants = {
+  //   hidden: { opacity: 0, y: 20 },
+  //   visible: { opacity: 1, y: 0, transition: { duration: 1.0 } },
+  // };
 
   const solEquivalent =
     solPrice !== null
@@ -51,9 +51,9 @@ export default function ShoppingItemDetail() {
     <div className="flex justify-center h-full py-10 overflow-y-auto no-scrollbar bg-black">
       <motion.div
         className="flex justify-center items-center mt-2"
-        variants={parallaxVariants}
-        initial="hidden"
-        animate="visible"
+        // variants={parallaxVariants}
+        // initial="hidden"
+        // animate="visible"
       >
         <Image
           width={500}
@@ -68,19 +68,19 @@ export default function ShoppingItemDetail() {
       <div className="flex justify-center flex-col ml-12 space-y-5 text-white w-[500px]">
         <motion.p
           className="text-[36px] font-semibold"
-          variants={parallaxVariants}
-          initial="hidden"
-          animate="visible"
+          // variants={parallaxVariants}
+          // initial="hidden"
+          // animate="visible"
         >
           {matchingAsset.name}
         </motion.p>
 
         <motion.p
           className="flex text-[24px] font-medium items-center"
-          variants={parallaxVariants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.5 }}
+          // variants={parallaxVariants}
+          // initial="hidden"
+          // animate="visible"
+          // transition={{ delay: 0.5 }}
         >
           <span className="mr-1">
             <SiSolana />
@@ -89,29 +89,29 @@ export default function ShoppingItemDetail() {
           <span className="ml-1 text-gray-400">(${matchingAsset.price})</span>
         </motion.p>
         <motion.hr
-          variants={parallaxVariants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.7 }}
+          // variants={parallaxVariants}
+          // initial="hidden"
+          // animate="visible"
+          // transition={{ delay: 0.7 }}
           className="w-full border-t-2 border-sol-green my-2"
         />
 
         <motion.p
           className="text-[18px] font-light flex items-center"
-          variants={parallaxVariants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.6 }}
+          // variants={parallaxVariants}
+          // initial="hidden"
+          // animate="visible"
+          // transition={{ delay: 0.6 }}
         >
           {matchingAsset.description}
         </motion.p>
         {/* Add to Cart Functionality */}
         <motion.div
           className="flex gap-2 pt-4"
-          variants={parallaxVariants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.7 }}
+          // variants={parallaxVariants}
+          // initial="hidden"
+          // animate="visible"
+          // transition={{ delay: 0.7 }}
         >
           {quantity === 0 ? (
             <motion.button
