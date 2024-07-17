@@ -3,7 +3,7 @@ export const assets = [
     image: "/images/1.png",
     id: 1,
     name: "Product 1",
-    price: 45,
+    price: 1,
     description:
       "This is a test product description. This is a test product description. This is a test product description.This is a test product description",
   },

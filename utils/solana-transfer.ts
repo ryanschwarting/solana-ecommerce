@@ -8,11 +8,20 @@ import {
   LAMPORTS_PER_SOL,
 } from "@solana/web3.js";
 
+interface TransferResult {
+  success: boolean;
+  signature?: string;
+  error?: unknown;
+}
+
 const transferSolana = async (
   amount: number,
   fromPubKey: PublicKey,
-  sendTransaction: any
-) => {
+  sendTransaction: (
+    transaction: Transaction,
+    connection: Connection
+  ) => Promise<string>
+): Promise<TransferResult> => {
   if (!fromPubKey) throw new WalletNotConnectedError();
 
   const toPublicKey = new PublicKey(
@@ -36,7 +45,7 @@ const transferSolana = async (
   try {
     const signature = await sendTransaction(transaction, connection);
     await connection.confirmTransaction(signature, "confirmed");
-    return { success: true };
+    return { success: true, signature };
   } catch (error) {
     console.error("Error sending transaction:", error);
     return { success: false, error };

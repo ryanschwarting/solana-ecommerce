@@ -7,14 +7,20 @@ interface PurchaseModalProps {
   isOpen: boolean;
   onClose: () => void;
   cartItems: any[];
+  totalSpent: string;
   totalSOL: string;
+  paymentMethod: "SOL" | "USDC";
+  transactionSignature: string;
 }
 
 const PurchaseModal: React.FC<PurchaseModalProps> = ({
   isOpen,
   onClose,
   cartItems,
+  totalSpent,
+  paymentMethod,
   totalSOL,
+  transactionSignature,
 }) => {
   const { clearCart } = useShoppingCart();
 
@@ -54,7 +60,23 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({
             </div>
           </div>
         ))}
-        <div className="font-bold text-lg">Total Spent: {totalSOL} SOL</div>
+        <div className="font-bold text-lg">
+          {paymentMethod === "SOL" ? (
+            <>Total Spent: {totalSOL} SOL</>
+          ) : (
+            <>Total Spent: {totalSpent} USDC</>
+          )}
+        </div>
+        <div className="mt-2">
+          <a
+            href={`https://explorer.solana.com/tx/${transactionSignature}?cluster=devnet`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 underline"
+          >
+            View Transaction on Solscan
+          </a>
+        </div>
       </div>
     </div>
   );

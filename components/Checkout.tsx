@@ -9,7 +9,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import { assets } from "@/constants/images";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { getSolPrice } from "../utils/solPrice"; // Adjust the path as needed
+import { getSolPrice } from "../utils/solPrice";
 import {
   Elements,
   PaymentElement,
@@ -19,10 +19,11 @@ import {
 import { loadStripe } from "@stripe/stripe-js";
 import convertToSubcurrency from "@/lib/convertToSubcurrency";
 import { NavBar } from "./NavBar";
+import transferUsdc from "@/utils/usdc-transfer";
 import transferSolana from "@/utils/solana-transfer";
 import { useWallet } from "@solana/wallet-adapter-react";
-import PurchaseModal from "./PurchaseModal"; // Import the new modal component
-import FailureModal from "./FailureModal"; // Import the failure modal component
+import PurchaseModal from "./PurchaseModal";
+import FailureModal from "./FailureModal";
 
 if (process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY === undefined) {
   throw new Error("NEXT_PUBLIC_STRIPE_PUBLIC_KEY is not defined");
@@ -66,7 +67,6 @@ const CartCheckoutInner: React.FC<{ clientSecret: string; amount: number }> = ({
     if (error) {
       setErrorMessage(error.message);
     } else {
-      // Clear the cart
     }
 
     setLoading(false);
@@ -111,6 +111,8 @@ export const CartCheckout: React.FC = () => {
   const [transactionStatus, setTransactionStatus] = useState<
     "success" | "failure" | null
   >(null);
+  const [paymentMethod, setPaymentMethod] = useState<"SOL" | "USDC">("SOL");
+  const [transactionSignature, setTransactionSignature] = useState("");
 
   useEffect(() => {
     const fetchPrice = async () => {
@@ -157,6 +159,36 @@ export const CartCheckout: React.FC = () => {
     setShowStripe(true);
   };
 
+  const handleUsdcClick = async () => {
+    if (!publicKey || !sendTransaction) {
+      console.error("Wallet not connected");
+      return;
+    }
+
+    try {
+      setIsTransactionPending(true);
+      const amount = totalUSD;
+
+      const result = await transferUsdc(amount, publicKey, sendTransaction);
+
+      setIsTransactionPending(false);
+      if (result.success && result.signature) {
+        setTransactionStatus("success");
+        setPaymentMethod("USDC");
+        setTransactionSignature(result.signature);
+        setIsModalOpen(true);
+      } else {
+        setTransactionStatus("failure");
+        setIsModalOpen(true);
+      }
+    } catch (error) {
+      console.error("Error initiating USDC transfer:", error);
+      setIsTransactionPending(false);
+      setTransactionStatus("failure");
+      setIsModalOpen(true);
+    }
+  };
+
   const handleSolanaClick = async () => {
     if (!publicKey) {
       console.error("Wallet not connected");
@@ -174,8 +206,10 @@ export const CartCheckout: React.FC = () => {
       );
 
       setIsTransactionPending(false);
-      if (result.success) {
+      if (result.success && result.signature) {
         setTransactionStatus("success");
+        setPaymentMethod("SOL");
+        setTransactionSignature(result.signature);
         setIsModalOpen(true);
       } else {
         setTransactionStatus("failure");
@@ -509,16 +543,18 @@ export const CartCheckout: React.FC = () => {
             <motion.button
               whileHover={{ scale: 0.9 }}
               whileTap={{ scale: 0.8 }}
-              disabled={!connected || !isFormSubmitted}
+              disabled={!connected || !isFormSubmitted || isTransactionPending}
+              onClick={handleUsdcClick}
               className={`flex bg-black rounded-xl py-2 px-3 border-2 border-white ${
-                !connected || !isFormSubmitted
+                !connected || !isFormSubmitted || isTransactionPending
                   ? "opacity-50 cursor-not-allowed"
                   : ""
               }`}
             >
               <SiSolana className="mt-1 mr-2" />
-              Buy with USDC
+              {!isTransactionPending ? "Buy with USDC" : "Processing..."}
             </motion.button>
+
             <motion.button
               whileHover={{ scale: 0.9 }}
               whileTap={{ scale: 0.8 }}
@@ -540,8 +576,6 @@ export const CartCheckout: React.FC = () => {
 
       {transactionStatus === "success" && (
         <PurchaseModal
-          isOpen={isModalOpen}
-          onClose={handleCloseModal}
           cartItems={cartItems.map((cartItem) => {
             const matchingAsset = assets.find(
               (asset) => asset.id === cartItem.id
@@ -551,7 +585,13 @@ export const CartCheckout: React.FC = () => {
               quantity: cartItem.quantity,
             };
           })}
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          // cartItems={cartItems}
+          totalSpent={totalUSD.toString()}
+          paymentMethod={paymentMethod}
           totalSOL={totalSOL}
+          transactionSignature={transactionSignature}
         />
       )}
 
