@@ -1,5 +1,11 @@
 // "use client";
-// import { createContext, ReactNode, useContext } from "react";
+// import {
+//   createContext,
+//   ReactNode,
+//   useContext,
+//   useState,
+//   useEffect,
+// } from "react";
 // import { useLocalStorage } from "../hooks/localStorage";
 
 // type ShoppingCartProviderProps = {
@@ -18,6 +24,7 @@
 //   removeFromCart: (id: number) => void;
 //   cartQuantity: number;
 //   cartItems: CartItem[];
+//   isLoading: boolean;
 // };
 
 // const ShoppingCartContext = createContext<ShoppingCartContext | undefined>(
@@ -39,6 +46,11 @@
 //     "shopping-cart",
 //     []
 //   );
+//   const [isLoading, setIsLoading] = useState(true);
+
+//   useEffect(() => {
+//     setIsLoading(false);
+//   }, []);
 
 //   const cartQuantity = cartItems.reduce(
 //     (quantity, item) => item.quantity + quantity,
@@ -94,6 +106,7 @@
 //         removeFromCart,
 //         cartItems,
 //         cartQuantity,
+//         isLoading,
 //       }}
 //     >
 //       {children}
@@ -125,6 +138,7 @@ type ShoppingCartContext = {
   increaseCartQuantity: (id: number) => void;
   decreaseCartQuantity: (id: number) => void;
   removeFromCart: (id: number) => void;
+  clearCart: () => void; // Added clearCart to context type
   cartQuantity: number;
   cartItems: CartItem[];
   isLoading: boolean;
@@ -200,6 +214,10 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     setCartItems((currItems) => currItems.filter((item) => item.id !== id));
   }
 
+  function clearCart() {
+    setCartItems([]); // This will clear the cart in both state and localStorage
+  }
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -207,6 +225,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         increaseCartQuantity,
         decreaseCartQuantity,
         removeFromCart,
+        clearCart,
         cartItems,
         cartQuantity,
         isLoading,

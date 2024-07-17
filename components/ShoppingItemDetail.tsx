@@ -134,7 +134,7 @@ export default function ShoppingItemDetail() {
                 >
                   <FaMinus />
                 </motion.button>
-                <div className="bg-black text-white border-2 py-1 border-white text-[16px] w-[100px] flex justify-center items-center rounded-xl ">
+                <div className="bg-black text-white font-light border-2 py-1 border-white text-[18px] w-[100px] flex justify-center items-center rounded-xl ">
                   <span>{quantity} in cart</span>
                 </div>
                 <motion.button
