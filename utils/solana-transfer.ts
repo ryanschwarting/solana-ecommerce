@@ -1,5 +1,55 @@
+// import { WalletNotConnectedError } from "@solana/wallet-adapter-base";
+// import {
+//   Connection,
+//   PublicKey,
+//   SystemProgram,
+//   Transaction,
+//   clusterApiUrl,
+//   LAMPORTS_PER_SOL,
+// } from "@solana/web3.js";
+
+// const transferSolana = async (
+//   amount: number,
+//   fromPubKey: PublicKey,
+//   sendTransaction: (
+//     transaction: Transaction,
+//     connection: Connection
+//   ) => Promise<string>
+// ) => {
+//   if (!fromPubKey) throw new WalletNotConnectedError();
+
+//   const connection = new Connection(clusterApiUrl("devnet"), "confirmed"); // Connect to Solana devnet
+
+//   try {
+//     const toPublicKey = new PublicKey(
+//       "8wM3AkEXsho9MvZDjvZ7ShtFnsZoHuHcrdkcAkvccV6S"
+//     );
+
+//     const transaction = new Transaction().add(
+//       SystemProgram.transfer({
+//         fromPubkey: fromPubKey,
+//         toPubkey: toPublicKey,
+//         lamports: amount * LAMPORTS_PER_SOL,
+//       })
+//     );
+
+//     transaction.feePayer = fromPubKey;
+//     const { blockhash } = await connection.getLatestBlockhash();
+//     transaction.recentBlockhash = blockhash;
+
+//     const signature = await sendTransaction(transaction, connection);
+
+//     await connection.confirmTransaction(signature, "confirmed");
+
+//     console.log("Transaction successful with signature:", signature);
+//   } catch (error) {
+//     console.error("Error sending transaction:", error);
+//   }
+// };
+
+// export default transferSolana;
+
 import { WalletNotConnectedError } from "@solana/wallet-adapter-base";
-import { useWallet } from "@solana/wallet-adapter-react";
 import {
   Connection,
   PublicKey,
@@ -9,48 +59,38 @@ import {
   LAMPORTS_PER_SOL,
 } from "@solana/web3.js";
 
-const transferSolana = async (toPublicKeyString: string, amount: number) => {
-  const { publicKey, sendTransaction } = useWallet();
+const transferSolana = async (
+  amount: number,
+  fromPubKey: PublicKey,
+  sendTransaction: any
+) => {
+  if (!fromPubKey) throw new WalletNotConnectedError();
 
-  const toPublicKey = new PublicKey(toPublicKeyString);
+  const toPublicKey = new PublicKey(
+    "8wM3AkEXsho9MvZDjvZ7ShtFnsZoHuHcrdkcAkvccV6S"
+  );
 
   const connection = new Connection(clusterApiUrl("devnet"), "confirmed"); // Connect to Solana devnet
 
+  const transaction = new Transaction().add(
+    SystemProgram.transfer({
+      fromPubkey: fromPubKey,
+      toPubkey: toPublicKey,
+      lamports: amount * LAMPORTS_PER_SOL,
+    })
+  );
+
+  transaction.feePayer = fromPubKey;
+  const { blockhash } = await connection.getLatestBlockhash();
+  transaction.recentBlockhash = blockhash;
+
   try {
-    let account: PublicKey;
-    // account = new PublicKey(account);
-
-    if (!publicKey) throw new WalletNotConnectedError();
-    connection.getBalance(publicKey).then((bal) => {
-      console.log(bal / LAMPORTS_PER_SOL);
-    });
-
-    // Fetch recent blockhash
-    const minimumBalance = await connection.getMinimumBalanceForRentExemption(
-      0 // note: simple accounts that just store native SOL have `0` bytes of data
-    );
-    if (amount * LAMPORTS_PER_SOL < minimumBalance) {
-      throw `account may not be rent exempt: ${toPublicKey.toBase58()}`;
-    }
-
-    const transaction = new Transaction();
-
-    transaction.add(
-      SystemProgram.transfer({
-        fromPubkey: publicKey,
-        toPubkey: toPublicKey,
-        lamports: amount * LAMPORTS_PER_SOL,
-      })
-    );
-
-    // set the end user as the fee payer
-    transaction.feePayer = publicKey;
-
-    transaction.recentBlockhash = (
-      await connection.getLatestBlockhash()
-    ).blockhash;
+    const signature = await sendTransaction(transaction, connection);
+    await connection.confirmTransaction(signature, "confirmed");
+    return { success: true };
   } catch (error) {
     console.error("Error sending transaction:", error);
+    return { success: false, error };
   }
 };
 
