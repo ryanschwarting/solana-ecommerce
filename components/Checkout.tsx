@@ -19,6 +19,8 @@ import {
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import convertToSubcurrency from "@/lib/convertToSubcurrency";
+import { NavBar } from "./NavBar";
+import transferSolana from "@/utils/solana-transfer";
 
 if (process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY === undefined) {
   throw new Error("NEXT_PUBLIC_STRIPE_PUBLIC_KEY is not defined");
@@ -149,6 +151,41 @@ export const CartCheckout: React.FC = () => {
     setShowStripe(true);
   };
 
+  const handleSolanaClick = async () => {
+    try {
+      setIsTransactionPending(true);
+      const solAmount = parseFloat(totalSOL); // Convert totalSOL to a number
+
+      // Call transferSolana and await the response
+      const response = await transferSolana(
+        "8wM3AkEXsho9MvZDjvZ7ShtFnsZoHuHcrdkcAkvccV6S",
+        solAmount
+      );
+
+      // // Ensure response is defined and has a valid structure
+      // if (!response || typeof response !== "object") {
+      //   throw new Error("Failed to initiate Solana transfer: Invalid response");
+      // }
+
+      // // Check if there is an error property in the response
+      // if (response.error) {
+      //   throw new Error(
+      //     `Failed to initiate Solana transfer: ${response.error}`
+      //   );
+      // }
+
+      console.log("Solana transfer initiated:", response);
+
+      // Optionally handle success, e.g., redirect to payment success page
+      setIsTransactionPending(false);
+      setTransactionSuccessful(true);
+    } catch (error) {
+      console.error("Error initiating Solana transfer:", error);
+      setIsTransactionPending(false);
+      // Handle error state
+    }
+  };
+
   // useEffect(() => {
   //   if (transactionSuccessful) {
   //     clearCart();
@@ -157,34 +194,40 @@ export const CartCheckout: React.FC = () => {
 
   if (cartItems.length === 0) {
     return (
-      <div className="bg-black text-white h-screen">
-        <div className="text-sol-green flex justify-center font-medium my-10 text-[52px]">
-          Shopping Cart
+      <>
+        <div className="py-4">
+          <NavBar />
         </div>
-        <div className="pt-10 space-y-6 flex flex-col justify-center items-center">
-          <div className="pr-5">
-            <Image
-              src={"/sad-cart-3.jpg"}
-              width={500}
-              height={500}
-              className="w-[200px] invert"
-              alt={"Cart"}
-            />
+
+        <div className="bg-black text-white h-screen">
+          <div className="text-sol-green flex justify-center font-medium my-10 text-[52px]">
+            Shopping Cart
           </div>
-          <div className="text-[28px] font-normal">Nothing in your bag</div>
-          <div>
-            <Link href="/">
-              <motion.button
-                whileHover={{ scale: 0.9 }}
-                whileTap={{ scale: 0.8 }}
-                className="flex justify-center border-2 border-white bg-black text-white py-3 px-10 text-[28px] font-normal rounded-full shadow-2xl"
-              >
-                Keep Shopping
-              </motion.button>
-            </Link>
+          <div className="pt-10 space-y-6 flex flex-col justify-center items-center">
+            <div className="pr-5">
+              <Image
+                src={"/sad-cart-3.jpg"}
+                width={500}
+                height={500}
+                className="w-[200px] invert"
+                alt={"Cart"}
+              />
+            </div>
+            <div className="text-[28px] font-normal">Nothing in your bag</div>
+            <div>
+              <Link href="/">
+                <motion.button
+                  whileHover={{ scale: 0.9 }}
+                  whileTap={{ scale: 0.8 }}
+                  className="flex justify-center border-2 border-white bg-black text-white py-3 px-10 text-[28px] font-normal rounded-full shadow-2xl"
+                >
+                  Keep Shopping
+                </motion.button>
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 
@@ -197,6 +240,9 @@ export const CartCheckout: React.FC = () => {
         currency: "usd",
       }}
     >
+      <div className="py-4">
+        <NavBar />
+      </div>
       <div className="text-sol-green flex justify-center font-medium mb-5 text-[44px]">
         Shopping Cart
       </div>
@@ -437,7 +483,7 @@ export const CartCheckout: React.FC = () => {
           Payment Method
         </div>
         <div className="flex justify-center space-x-3 text-white my-8 text-[18px]">
-          <motion.button
+          {/* <motion.button
             whileHover={{ scale: 0.9 }}
             whileTap={{ scale: 0.8 }}
             disabled={!isFormSubmitted}
@@ -447,7 +493,22 @@ export const CartCheckout: React.FC = () => {
           >
             <SiSolana className="mt-1 mr-2" />
             Buy with Solana
+          </motion.button> */}
+          <motion.button
+            whileHover={{ scale: 0.9 }}
+            whileTap={{ scale: 0.8 }}
+            disabled={!isFormSubmitted || isTransactionPending}
+            onClick={handleSolanaClick}
+            className={`flex bg-black rounded-xl py-2 px-3 border-2 border-white ${
+              !isFormSubmitted || isTransactionPending
+                ? "opacity-50 cursor-not-allowed"
+                : ""
+            }`}
+          >
+            <SiSolana className="mt-1 mr-2" />
+            {!isTransactionPending ? "Buy with Solana" : "Processing..."}
           </motion.button>
+
           <motion.button
             whileHover={{ scale: 0.9 }}
             whileTap={{ scale: 0.8 }}
