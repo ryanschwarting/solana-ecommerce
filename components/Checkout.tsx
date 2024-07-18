@@ -352,7 +352,7 @@ export const CartCheckout: React.FC = () => {
                 </div>
               </div>
               <div className="flex space-x-4">
-                <div className="w-1/2">
+                <div className="w-1/2 ">
                   <label className="block text-sm font-medium">Country</label>
                   <select
                     className="w-full px-4 py-2 bg-gray-900 text-sol-green rounded-md"

@@ -84,14 +84,14 @@ function Footer() {
 
   return (
     <div className="flex justify-center items-center px-2 md:px-0">
-      <div className="bg-sol-purple p-10 w-full mt-24 rounded-t-xl">
+      <div className="bg-black border-t-2 border-l-2 border-r-2 border-sol-green p-10 w-full mt-24 rounded-t-xl">
         <div className="flex flex-wrap justify-between mb-8">
           <div className="w-full lg:w-1/3 mb-8 lg:mb-0">
             <div className="flex flex-col">
-              <p className="font-normal text-[14px] text-black leading-[20px] tracking-tight mt-4">
+              <p className="font-normal text-[14px] text-white leading-[20px] tracking-tight mt-4">
                 Contact me directly
               </p>
-              <p className="font-normal text-[14px] text-black leading-[20px] tracking-tight">
+              <p className="font-normal text-[14px] text-white leading-[20px] tracking-tight">
                 with any questions.
               </p>
               <a
@@ -109,7 +109,7 @@ function Footer() {
           </div>
 
           <div className="w-full lg:w-1/3">
-            <h2 className="ml-0 md:ml-1 font-normal text-black text-[14px] tracking-tight leading-[20px]">
+            <h2 className="ml-0 md:ml-1 font-normal text-white text-[14px] tracking-tight leading-[20px]">
               Sign up to recieve news and updates.
             </h2>
             <form
@@ -119,7 +119,7 @@ function Footer() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-grow p-2 text-[14px] text-black bg-white border-none outline-none rounded-full"
+                className="flex-grow p-2 text-[14px] text-white bg-white border-none outline-none rounded-full"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -136,10 +136,10 @@ function Footer() {
           </div>
         </div>
         <div className="flex flex-row justify-between items-center border-t-2 pt-4 border-sol-green">
-          <p className="text-black text-[14px] md:text-[14px] sm:mb-0 mr-2">
+          <p className="text-white text-[14px] md:text-[14px] sm:mb-0 mr-2">
             &copy; 2024 Kaktos. All rights reserved.
           </p>
-          <div className="text-black text-[12px] justify-center space-x-4">
+          <div className="text-white text-[12px] justify-center space-x-4">
             <ul className="flex space-x-6">
               {dataSocial.map((item, index) => (
                 <motion.li
@@ -149,7 +149,7 @@ function Footer() {
                 >
                   <a
                     href={item.link}
-                    className="font-normal text-black text-[14px] md:text-[14px] tracking-tight leading-[20px] hover:text-[#14F195]"
+                    className="font-normal text-white text-[14px] md:text-[14px] tracking-tight leading-[20px] hover:text-[#14F195]"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

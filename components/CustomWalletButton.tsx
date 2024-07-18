@@ -220,7 +220,7 @@ export const CustomWalletButton = () => {
               initial={false}
               animate={dropdownOpen ? "open" : "closed"}
               variants={dropdownVariants}
-              className="absolute bg-white text-black font-medium text-center text-[14px] w-[200px] mt-1 rounded-xl z-50 "
+              className="absolute bg-black text-white font-medium text-center text-[14px] w-[200px] mt-1 rounded-xl z-50 "
             >
               <motion.button
                 variants={itemVariants}
@@ -286,7 +286,7 @@ export const CustomWalletButton = () => {
                     whileTap={{ scale: 0.85 }}
                     key={wallet.adapter.name}
                     onClick={() => handleWalletSelect(wallet.adapter.name)}
-                    className="flex bg-black items-center py-4 px-6 text-white w-full border-2 border-white rounded-xl"
+                    className="flex bg-black items-center py-4 px-6 text-white hover:text-sol-green w-full border-2 border-white rounded-xl"
                   >
                     <Image
                       src={wallet.adapter.icon}

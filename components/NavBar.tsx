@@ -39,7 +39,7 @@ export const NavBar: React.FC = () => {
         <div className="max-w-7xl mx-auto flex justify-between items-center h-full">
           <Link href="/">
             <motion.button
-              className="flex items-center text-sol-green font-bold text-[28px]"
+              className="flex items-center text-sol-green font-bold text-[32px]"
               // variants={navItemVariants}
             >
               Crypto
