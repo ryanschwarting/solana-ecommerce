@@ -2,6 +2,7 @@
 import { NavBar } from "@/components/NavBar";
 import React, { useState } from "react";
 import { IoMdArrowDropright } from "react-icons/io";
+import { motion } from "framer-motion";
 
 export default function Pages() {
   const [formState, setFormState] = useState({
@@ -194,7 +195,9 @@ export default function Pages() {
                   Submitted Successfully!
                 </div>
               )}
-              <button
+              <motion.button
+                whileHover={{ scale: 0.9 }}
+                whileTap={{ scale: 0.8 }}
                 type="submit"
                 className="bg-[#14F195] text-black py-2 px-6 h-[44px] rounded-full flex items-center"
               >
@@ -202,7 +205,7 @@ export default function Pages() {
                   Submit
                 </span>
                 <IoMdArrowDropright />
-              </button>
+              </motion.button>
             </div>
           </form>
         </div>

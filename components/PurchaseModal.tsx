@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { FaTimes } from "react-icons/fa";
 import { useShoppingCart } from "@/context/shoppingCart";
+import { motion } from "framer-motion";
 
 interface PurchaseModalProps {
   isOpen: boolean;
@@ -32,14 +33,16 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
-      <div className="bg-white p-6 rounded-lg max-w-lg w-full relative">
-        <button
+      <div className="bg-black p-6 rounded-lg max-w-lg w-full relative border-2 border-sol-green shadow-2xl shadow-sol-green">
+        <motion.button
+          whileHover={{ scale: 0.9 }}
+          whileTap={{ scale: 0.8 }}
           onClick={handleKeepShopping}
-          className="absolute top-2 right-2 text-gray-500 hover:text-black"
+          className="absolute top-2 right-2 text-white hover:text-sol-green"
         >
           <FaTimes size={20} />
-        </button>
-        <h2 className="text-2xl font-bold mb-4">
+        </motion.button>
+        <h2 className="flex justify-center text-sol-green text-2xl font-bold mb-4">
           Thank You for Your Purchase!
         </h2>
         {cartItems.map((item, index) => (
@@ -51,16 +54,14 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({
               alt={item.name}
               className="w-16 h-16 object-cover rounded-md"
             />
-            <div className="ml-4">
+            <div className="ml-4 text-white">
               <div className="font-bold">{item.name}</div>
-              <div className="text-gray-500">Quantity: {item.quantity}</div>
-              <div className="text-gray-500">
-                Price: ${(item.price * item.quantity).toFixed(2)}
-              </div>
+              <div>Quantity: {item.quantity}</div>
+              <div>Price: ${(item.price * item.quantity).toFixed(2)}</div>
             </div>
           </div>
         ))}
-        <div className="font-bold text-lg">
+        <div className="font-bold text-lg text-white">
           {paymentMethod === "SOL" ? (
             <>Total Spent: {totalSOL} SOL</>
           ) : (
