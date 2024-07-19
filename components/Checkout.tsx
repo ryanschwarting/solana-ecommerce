@@ -789,12 +789,14 @@ const CartCheckoutInner: React.FC<{
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
           <div className="relative p-5 rounded-xl bg-white w-full max-w-md">
-            <button
+            <motion.button
+              whileHover={{ scale: 0.9 }}
+              whileTap={{ scale: 0.8 }}
               onClick={handleClose}
-              className="absolute top-2 right-2 text-black"
+              className="absolute top-1 right-2 text-black mb-10 hover:text-sol-green"
             >
               <FaTimes size={20} />
-            </button>
+            </motion.button>
             <form onSubmit={handlePayment}>
               {clientSecret && <PaymentElement />}
 
