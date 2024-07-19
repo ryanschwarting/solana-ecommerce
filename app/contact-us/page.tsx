@@ -99,7 +99,7 @@ export default function Pages() {
                 name="firstName"
                 value={formState.firstName}
                 onChange={handleChange}
-                className="p-2 rounded-xl w-full h-[44px] text-black"
+                className="p-2 rounded-xl w-full h-[44px] text-sol-green bg-gray-900"
                 required
               />
             </div>
@@ -116,7 +116,7 @@ export default function Pages() {
                 name="lastName"
                 value={formState.lastName}
                 onChange={handleChange}
-                className="p-2 rounded-xl w-full h-[44px] text-black"
+                className="p-2 rounded-xl w-full h-[44px] text-sol-green bg-gray-900"
                 required
               />
             </div>
@@ -133,7 +133,7 @@ export default function Pages() {
                 name="email"
                 value={formState.email}
                 onChange={handleChange}
-                className="p-2 rounded-xl w-full h-[44px] text-black"
+                className="p-2 rounded-xl w-full h-[44px] text-sol-green bg-gray-900"
                 required
               />
             </div>
@@ -151,12 +151,12 @@ export default function Pages() {
                 name="mobile"
                 value={formState.mobile}
                 onChange={handleChange}
-                className="p-2 rounded-xl w-full h-[44px] text-black"
+                className="p-2 rounded-xl w-full h-[44px] text-sol-green bg-gray-900"
               />
             </div>
             <div className="w-full">
               <label
-                className="block text-white mb-2 font-medium text-[12px] lg:text-[14px] "
+                className="block text-white mb-2 font-medium text-[12px] lg:text-[14px]"
                 htmlFor="company"
               >
                 Company{" "}
@@ -168,7 +168,7 @@ export default function Pages() {
                 name="company"
                 value={formState.company}
                 onChange={handleChange}
-                className="p-2 rounded-xl w-full h-[44px] text-black"
+                className="p-2 rounded-xl w-full h-[44px] text-sol-green bg-gray-900"
               />
             </div>
             <div className="w-full">
@@ -184,7 +184,7 @@ export default function Pages() {
                 placeholder="Type your message"
                 value={formState.message}
                 onChange={handleChange}
-                className="p-2 w-full h-48 rounded-xl text-black text-[12px] md:text-[12px]"
+                className="p-2 w-full h-48 rounded-xl text-sol-green bg-gray-900 text-[12px] md:text-[14px]"
                 required
               />
             </div>

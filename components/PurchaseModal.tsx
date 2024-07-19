@@ -63,7 +63,9 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({
         ))}
         <div className="font-bold text-lg text-white">
           {paymentMethod === "SOL" ? (
-            <>Total Spent: {totalSOL} SOL</>
+            <>
+              Total Spent: {totalSOL} SOL (${totalSpent})
+            </>
           ) : (
             <>Total Spent: {totalSpent} USDC</>
           )}
@@ -71,11 +73,12 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({
         <div className="mt-2">
           <a
             href={`https://explorer.solana.com/tx/${transactionSignature}?cluster=devnet`}
+            // href={`https://solscan.io/tx/${transactionSignature}?cluster=devnet`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-sol-green underline"
           >
-            View Transaction on Solscan
+            View Transaction
           </a>
         </div>
       </div>

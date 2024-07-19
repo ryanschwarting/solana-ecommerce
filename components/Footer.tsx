@@ -83,8 +83,8 @@ function Footer() {
   };
 
   return (
-    <div className="flex justify-center items-center px-2 md:px-0">
-      <div className="bg-black border-t-2 border-l-2 border-r-2 border-sol-green p-10 w-full mt-24 rounded-t-xl">
+    <div className="flex justify-center items-center px-2 md:px-0 ">
+      <div className="bg-black border-t-2 border-l-2 border-r-2 border-sol-green p-10 w-full mt-24 rounded-t-xl ">
         <div className="flex flex-wrap justify-between mb-8">
           <div className="w-full lg:w-1/3 mb-8 lg:mb-0">
             <div className="flex flex-col">
@@ -114,12 +114,12 @@ function Footer() {
             </h2>
             <form
               onSubmit={handleSubmit}
-              className="flex mt-4 items-center bg-white rounded-full p-1 pr-1"
+              className="flex mt-4 items-center bg-gray-900 rounded-full p-1 pr-1"
             >
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-grow p-2 text-[14px] text-white bg-white border-none outline-none rounded-full"
+                className="flex-grow p-2 text-[14px] text-sol-green bg-gray-900 border-none outline-none rounded-full"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />

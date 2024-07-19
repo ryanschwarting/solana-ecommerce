@@ -30,7 +30,7 @@ export const NavBar: React.FC = () => {
   return (
     <>
       <motion.nav
-        className="p-10 h-16"
+        className="p-10 h-24 shadow-lg shadow-sol-green rounded-xl"
         // initial="hidden"
         // animate="visible"
         // variants={navVariants}
@@ -74,7 +74,7 @@ export const NavBar: React.FC = () => {
           </div>
         </div>
       </motion.nav>
-      <hr className="mt-3 border-t-2 border-sol-green"></hr>
+      {/* <hr className="mt-2 border-t-2 border-sol-green "></hr> */}
     </>
   );
 };

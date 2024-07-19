@@ -131,7 +131,7 @@ export default function ShoppingItemDetail() {
               </motion.button>
             ) : (
               <div className="flex items-center flex-col gap-2 bg-black text-white">
-                <div className="flex justify-center gap-2">
+                <div className="flex justify-center gap-2 border-2 border-white rounded-xl py-2">
                   <motion.button
                     whileHover={{ scale: 0.9 }}
                     whileTap={{ scale: 0.8 }}
@@ -140,7 +140,7 @@ export default function ShoppingItemDetail() {
                   >
                     <FaMinus />
                   </motion.button>
-                  <div className="bg-black text-white font-light border-2 py-1 border-white text-[18px] w-[100px] flex justify-center items-center rounded-xl ">
+                  <div className="bg-black text-white font-light py-1 text-[18px] w-[100px] flex justify-center items-center rounded-xl ">
                     <span>{quantity} in cart</span>
                   </div>
                   <motion.button

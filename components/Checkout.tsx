@@ -73,14 +73,14 @@ const CartCheckoutInner: React.FC<{ clientSecret: string; amount: number }> = ({
   };
 
   return (
-    <form onSubmit={handlePayment} className="bg-white p-2 rounded-md">
+    <form onSubmit={handlePayment} className="bg-white p-2 rounded-xl">
       {clientSecret && <PaymentElement />}
 
       {errorMessage && <div>{errorMessage}</div>}
 
       <button
         disabled={!stripe || loading}
-        className="text-white w-full p-5 bg-black mt-2 rounded-md font-bold disabled:opacity-50 disabled:animate-pulse"
+        className="text-white w-full p-5 bg-black mt-2 rounded-xl font-bold disabled:opacity-50 disabled:animate-pulse"
       >
         {!loading ? `Pay $${amount.toFixed(2)}` : "Processing..."}
       </button>
@@ -128,7 +128,7 @@ export const CartCheckout: React.FC = () => {
   }, 0);
 
   const totalSOL =
-    solPrice !== null ? (totalUSD / solPrice).toFixed(2) : "Loading...";
+    solPrice !== null ? (totalUSD / solPrice).toFixed(5) : "Loading...";
 
   useEffect(() => {
     if (showStripe && totalUSD > 0) {
@@ -277,15 +277,15 @@ export const CartCheckout: React.FC = () => {
           currency: "usd",
         }}
       >
-        <div className="py-4">
+        <div className="py-8">
           <NavBar />
         </div>
         <div className="text-sol-green flex justify-center font-bold mb-5 text-[44px]">
           Shopping Cart
         </div>
-        <div className="bg-black text-white px-10 h-full flex border-t-2 border-sol-green">
-          <div className="w-1/2 pr-4 border-r-2 border-sol-green">
-            <form onSubmit={handleFormSubmit} className="space-y-4 pt-4">
+        <div className="bg-black text-white h-full flex border-2 border-sol-green rounded-xl">
+          <div className="w-1/2 p-6 border-r-2 border-sol-green">
+            <form onSubmit={handleFormSubmit} className="space-y-4">
               <h2 className="text-sol-green text-[32px] font-bold mb-4">
                 <span className="mr-2 text-[36px]">&#9312;</span>Submit Shipping
                 Info
@@ -294,7 +294,7 @@ export const CartCheckout: React.FC = () => {
                 <label className="block text-sm font-medium">Name</label>
                 <input
                   type="text"
-                  className="w-full px-4 py-2 bg-gray-900 text-sol-green rounded-md"
+                  className="w-full px-4 py-2 bg-gray-900 text-sol-green rounded-xl"
                   required
                   disabled={isFormSubmitted}
                 />
@@ -303,7 +303,7 @@ export const CartCheckout: React.FC = () => {
                 <label className="block text-sm font-medium">Email</label>
                 <input
                   type="email"
-                  className="w-full px-4 py-2 bg-gray-900 text-sol-green rounded-md"
+                  className="w-full px-4 py-2 bg-gray-900 text-sol-green rounded-xl"
                   required
                   disabled={isFormSubmitted}
                 />
@@ -314,7 +314,7 @@ export const CartCheckout: React.FC = () => {
                 </label>
                 <input
                   type="text"
-                  className="w-full px-4 py-2 bg-gray-900 text-sol-green rounded-md"
+                  className="w-full px-4 py-2 bg-gray-900 text-sol-green rounded-xl"
                   required
                   disabled={isFormSubmitted}
                 />
@@ -325,7 +325,7 @@ export const CartCheckout: React.FC = () => {
                 </label>
                 <input
                   type="text"
-                  className="w-full px-4 py-2 bg-gray-900 text-sol-green rounded-md"
+                  className="w-full px-4 py-2 bg-gray-900 text-sol-green rounded-xl"
                   disabled={isFormSubmitted}
                 />
               </div>
@@ -334,7 +334,7 @@ export const CartCheckout: React.FC = () => {
                   <label className="block text-sm font-medium">City</label>
                   <input
                     type="text"
-                    className="w-full px-4 py-2 bg-gray-900 text-sol-green rounded-md"
+                    className="w-full px-4 py-2 bg-gray-900 text-sol-green rounded-xl"
                     required
                     disabled={isFormSubmitted}
                   />
@@ -345,7 +345,7 @@ export const CartCheckout: React.FC = () => {
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-2 bg-gray-900 text-sol-green rounded-md"
+                    className="w-full px-4 py-2 bg-gray-900 text-sol-green rounded-xl"
                     required
                     disabled={isFormSubmitted}
                   />
@@ -355,7 +355,7 @@ export const CartCheckout: React.FC = () => {
                 <div className="w-1/2 ">
                   <label className="block text-sm font-medium">Country</label>
                   <select
-                    className="w-full px-4 py-2 bg-gray-900 text-sol-green rounded-md"
+                    className="w-full px-4 py-2 bg-gray-900 text-sol-green rounded-xl"
                     required
                     disabled={isFormSubmitted}
                   >
@@ -368,7 +368,7 @@ export const CartCheckout: React.FC = () => {
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-2 bg-gray-900 text-sol-green rounded-md"
+                    className="w-full px-4 py-2 bg-gray-900 text-sol-green rounded-xl"
                     required
                     disabled={isFormSubmitted}
                   />
@@ -380,7 +380,7 @@ export const CartCheckout: React.FC = () => {
                 </label>
                 <input
                   type="tel"
-                  className="w-full px-4 py-2 bg-gray-900 text-sol-green rounded-md"
+                  className="w-full px-4 py-2 bg-gray-900 text-sol-green rounded-xl"
                   required
                   disabled={isFormSubmitted}
                 />
@@ -391,7 +391,7 @@ export const CartCheckout: React.FC = () => {
                 type="submit"
                 className={`w-full py-2 mt-4 ${
                   isFormSubmitted ? "hidden" : "bg-sol-green"
-                } text-black font-medium rounded-md hover:bg-sol-green-light transition-colors`}
+                } text-black font-medium rounded-xl hover:bg-sol-green-light transition-colors`}
                 disabled={isFormSubmitted}
               >
                 Submit
@@ -402,15 +402,15 @@ export const CartCheckout: React.FC = () => {
                 whileHover={{ scale: 0.9 }}
                 whileTap={{ scale: 0.8 }}
                 onClick={handleEditClick}
-                className="w-full py-2 mt-4 bg-sol-green text-black font-medium rounded-md hover:bg-sol-green-light transition-colors"
+                className="w-full py-2 mt-4 bg-sol-green text-black font-medium rounded-xl hover:bg-sol-green-light transition-colors"
               >
                 Edit
               </motion.button>
             )}
           </div>
 
-          <div className="w-1/2 pl-4">
-            <h2 className="text-sol-green text-[32px] font-bold mb-4 pt-4">
+          <div className="w-1/2 p-6">
+            <h2 className="text-sol-green text-[32px] font-bold">
               <span className="mr-2 text-[36px]">&#9313;</span>Submit Payment
             </h2>
 
@@ -479,20 +479,20 @@ export const CartCheckout: React.FC = () => {
                           <motion.button
                             whileHover={{ scale: 0.9 }}
                             whileTap={{ scale: 0.8 }}
-                            className="bg-black text-white p-1 rounded-md w-6 items-center"
+                            className="bg-black text-white p-1 rounded-xl w-6 items-center"
                             onClick={() =>
                               decreaseCartQuantity(matchingAsset.id)
                             }
                           >
                             <FaMinus />
                           </motion.button>
-                          <div className="bg-black text-white p-2 rounded-md text-[14px] items-center">
+                          <div className="bg-black text-white p-2 rounded-xl text-[14px] items-center">
                             <span>{cartItem.quantity} in cart</span>
                           </div>
                           <motion.button
                             whileHover={{ scale: 0.9 }}
                             whileTap={{ scale: 0.8 }}
-                            className="bg-black text-white p-1 rounded-md w-6 items-center"
+                            className="bg-black text-white p-1 rounded-xl w-6 items-center"
                             onClick={handleAddToCart}
                           >
                             <FaPlus />
@@ -515,7 +515,7 @@ export const CartCheckout: React.FC = () => {
               })}
             </ul>
             <div className="">
-              <hr className="border-t-2 border-sol-green mt-10"></hr>
+              <hr className="border-t-2 border-sol-green mt-2"></hr>
               <div className="flex justify-center font-bold text-[24px] mt-10 text-sol-purple">
                 Total: {totalSOL} SOL (${totalUSD.toFixed(2)})
               </div>
