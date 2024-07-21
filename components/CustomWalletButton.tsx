@@ -220,7 +220,7 @@ export const CustomWalletButton = () => {
               initial={false}
               animate={dropdownOpen ? "open" : "closed"}
               variants={dropdownVariants}
-              className="absolute bg-black text-white font-medium text-center text-[14px] w-[200px] mt-1 rounded-xl z-50 "
+              className="absolute bg-black text-white border-2 border-white font-medium text-center text-[14px] w-[200px] mt-1 rounded-xl z-50 "
             >
               <motion.button
                 variants={itemVariants}
