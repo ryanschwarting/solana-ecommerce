@@ -181,7 +181,7 @@ export const CustomWalletButton = () => {
               whileHover={{ scale: 0.9 }}
               whileTap={{ scale: 0.8 }}
               onClick={() => setOpen(true)}
-              className="text-[12px] md:text-[18px] font-medium border-2 border-white bg-gray-900 text-white h-[40px] md:h-[60px] w-[200px] rounded-xl"
+              className="text-[12px] md:text-[18px] font-medium border-2 border-white hover:border-2 hover:border-sol-green bg-gray-900 text-white h-[40px] md:h-[60px] w-[200px] rounded-xl"
             >
               {connecting ? "Connecting..." : "Select Wallet"}
             </motion.button>
@@ -191,7 +191,7 @@ export const CustomWalletButton = () => {
             <motion.button
               whileHover={{ scale: 0.9 }}
               whileTap={{ scale: 0.8 }}
-              className="flex bg-gray-900 text-[12px] md:text-[18px] font-medium border-2 border-white text-white h-[40px] md:h-[60px] w-[200px] rounded-xl items-center"
+              className="flex bg-gray-900 text-[12px] md:text-[18px] font-medium border-2 border-white hover:border-2 hover:border-sol-green text-white h-[40px] md:h-[60px] w-[200px] rounded-xl items-center"
               onClick={() => setDropdownOpen(!dropdownOpen)}
             >
               {selectedWalletIcon && (
@@ -286,7 +286,7 @@ export const CustomWalletButton = () => {
                     whileTap={{ scale: 0.85 }}
                     key={wallet.adapter.name}
                     onClick={() => handleWalletSelect(wallet.adapter.name)}
-                    className="flex bg-gray-900 items-center py-4 px-6 text-white hover:text-sol-green w-full border-2 border-white rounded-xl"
+                    className="flex bg-gray-900 items-center py-4 px-6 text-white w-full border-2 border-white hover:border-2 hover:border-sol-green rounded-xl"
                   >
                     <Image
                       src={wallet.adapter.icon}

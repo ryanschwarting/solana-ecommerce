@@ -254,7 +254,7 @@ export const CartCheckout: React.FC = () => {
         </div>
 
         <div className="bg-black text-white h-screen">
-          <div className="text-sol-green flex justify-center font-bold my-10 text-[52px]">
+          <div className="text-white flex justify-center font-bold my-10 text-[52px]">
             Shopping Cart
           </div>
           <div className="pt-10 space-y-6 flex flex-col justify-center items-center">
@@ -273,7 +273,7 @@ export const CartCheckout: React.FC = () => {
                 <motion.button
                   whileHover={{ scale: 0.9 }}
                   whileTap={{ scale: 0.8 }}
-                  className="flex justify-center border-2 border-white bg-black text-white py-3 px-10 text-[28px] font-normal rounded-full shadow-2xl"
+                  className="flex justify-center border-2 border-white hover:border-sol-green bg-black text-white py-3 px-10 text-[28px] font-normal rounded-full shadow-2xl"
                 >
                   Keep Shopping
                 </motion.button>
@@ -298,7 +298,7 @@ export const CartCheckout: React.FC = () => {
         <div className="py-8">
           <NavBar />
         </div>
-        <div className="text-sol-green flex justify-center font-bold mb-5 text-[44px]">
+        <div className="text-white flex justify-center font-bold mb-5 text-[44px]">
           Shopping Cart
         </div>
         <div className="bg-black text-white h-full flex border-2 border-sol-green rounded-xl">
@@ -566,7 +566,7 @@ export const CartCheckout: React.FC = () => {
                       !connected || !isFormSubmitted || isTransactionPending
                     }
                     onClick={handleSolanaClick}
-                    className={`flex bg-black rounded-xl py-2 px-3 border-2 border-white ${
+                    className={`flex bg-black rounded-xl py-2 px-3 border-2 border-white hover:border-sol-green ${
                       !connected || !isFormSubmitted || isTransactionPending
                         ? "opacity-50 cursor-not-allowed"
                         : ""
@@ -585,7 +585,7 @@ export const CartCheckout: React.FC = () => {
                       !connected || !isFormSubmitted || isTransactionPending
                     }
                     onClick={handleUsdcClick}
-                    className={`flex bg-black rounded-xl py-2 px-3 border-2 border-white ${
+                    className={`flex bg-black rounded-xl py-2 px-3 border-2 border-white hover:border-sol-green ${
                       !connected || !isFormSubmitted || isTransactionPending
                         ? "opacity-50 cursor-not-allowed"
                         : ""
@@ -600,7 +600,7 @@ export const CartCheckout: React.FC = () => {
                     whileTap={{ scale: 0.8 }}
                     disabled={!isFormSubmitted}
                     onClick={handleStripeClick}
-                    className={`flex bg-black rounded-xl py-2 px-3 border-2 border-white ${
+                    className={`flex bg-black rounded-xl py-2 px-3 border-2 border-white hover:border-sol-green ${
                       !isFormSubmitted ? "opacity-50 cursor-not-allowed" : ""
                     }`}
                   >

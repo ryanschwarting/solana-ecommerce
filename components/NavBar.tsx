@@ -60,7 +60,7 @@ export const NavBar: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 0.9 }}
                 whileTap={{ scale: 0.8 }}
-                className="flex items-center justify-center bg-gray-900 h-[40px] md:h-[60px] px-4 rounded-xl text-white border-2 border-white font-medium"
+                className="flex items-center justify-center bg-gray-900 h-[40px] md:h-[60px] px-4 rounded-xl text-white border-2 border-white hover:border-2 hover:border-sol-green font-medium"
                 // variants={navItemVariants}
               >
                 <MdOutlineShoppingBag className="text-[24px] items-center" />
