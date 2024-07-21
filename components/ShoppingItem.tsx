@@ -34,7 +34,7 @@ export const ShoppingItem = ({
     solPrice !== null ? (price / solPrice).toFixed(2) : "Loading...";
 
   return (
-    <div className="flex flex-col items-center  hover:border-2 hover:border-sol-green p-6 bg-gray-900 rounded-xl">
+    <div className="flex flex-col items-center border-2 border-white  hover:border-2 hover:border-sol-green p-6 bg-gray-900 rounded-xl">
       <div className="hover:underline decoration-sol-green">
         <div
           className={`relative bg-opacity-0 hover:bg-opacity-100 transform hover:scale-95 transition-transform duration-500 ease-in-out shadow-2xl`}
