@@ -123,30 +123,30 @@ export default function ShoppingItemDetail() {
               <motion.button
                 whileHover={{ scale: 0.9 }}
                 whileTap={{ scale: 0.8 }}
-                className="bg-black text-white font-light text-[18px] w-[200px] border-2 border-white p-3 rounded-xl flex justify-center items-center"
+                className="bg-gray-900 text-white font-light text-[18px] w-[200px] border-2 border-white p-3 rounded-xl flex justify-center items-center"
                 onClick={() => increaseCartQuantity(matchingAsset.id)}
               >
                 <MdOutlineShoppingBag className="mr-4 w-auto h-[24px]" /> Add To
                 Cart
               </motion.button>
             ) : (
-              <div className="flex items-center flex-col gap-2 bg-black text-white">
+              <div className="flex items-center flex-col gap-2 bg-gray-900 text-white">
                 <div className="flex justify-center gap-2 border-2 border-white rounded-xl py-2">
                   <motion.button
                     whileHover={{ scale: 0.9 }}
                     whileTap={{ scale: 0.8 }}
-                    className="bg-black text-white  px-4 rounded-xl"
+                    className="bg-gray-900 text-white  px-4 rounded-xl"
                     onClick={() => decreaseCartQuantity(matchingAsset.id)}
                   >
                     <FaMinus />
                   </motion.button>
-                  <div className="bg-black text-white font-light py-1 text-[18px] w-[100px] flex justify-center items-center rounded-xl ">
+                  <div className="bg-gray-900 text-white font-light py-1 text-[18px] w-[100px] flex justify-center items-center rounded-xl ">
                     <span>{quantity} in cart</span>
                   </div>
                   <motion.button
                     whileHover={{ scale: 0.9 }}
                     whileTap={{ scale: 0.8 }}
-                    className="bg-black text-white px-4 rounded-xl"
+                    className="bg-gray-900 text-white px-4 rounded-xl"
                     onClick={() => increaseCartQuantity(matchingAsset.id)}
                   >
                     <FaPlus />

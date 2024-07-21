@@ -181,7 +181,7 @@ export const CustomWalletButton = () => {
               whileHover={{ scale: 0.9 }}
               whileTap={{ scale: 0.8 }}
               onClick={() => setOpen(true)}
-              className="text-[12px] md:text-[18px] font-medium border-2 border-white bg-black text-white h-[40px] md:h-[60px] w-[200px] rounded-xl"
+              className="text-[12px] md:text-[18px] font-medium border-2 border-white bg-gray-900 text-white h-[40px] md:h-[60px] w-[200px] rounded-xl"
             >
               {connecting ? "Connecting..." : "Select Wallet"}
             </motion.button>
@@ -191,7 +191,7 @@ export const CustomWalletButton = () => {
             <motion.button
               whileHover={{ scale: 0.9 }}
               whileTap={{ scale: 0.8 }}
-              className="flex bg-black text-[12px] md:text-[18px] font-medium border-2 border-white text-white h-[40px] md:h-[60px] w-[200px] rounded-xl items-center"
+              className="flex bg-gray-900 text-[12px] md:text-[18px] font-medium border-2 border-white text-white h-[40px] md:h-[60px] w-[200px] rounded-xl items-center"
               onClick={() => setDropdownOpen(!dropdownOpen)}
             >
               {selectedWalletIcon && (
@@ -220,7 +220,7 @@ export const CustomWalletButton = () => {
               initial={false}
               animate={dropdownOpen ? "open" : "closed"}
               variants={dropdownVariants}
-              className="absolute bg-black text-white border-2 border-white font-medium text-center text-[14px] w-[200px] mt-1 rounded-xl z-50 "
+              className="absolute bg-gray-900 text-white border-2 border-white font-medium text-center text-[14px] w-[200px] mt-1 rounded-xl z-50 "
             >
               <motion.button
                 variants={itemVariants}
@@ -260,7 +260,7 @@ export const CustomWalletButton = () => {
               animate="open"
               exit="closed"
               variants={modalVariants}
-              className="relative bg-black py-4 px-10 rounded-xl max-w-[450px] w-full border-2 border-white"
+              className="relative bg-gray-900 py-4 px-10 rounded-xl max-w-[450px] w-full border-2 border-white"
             >
               <div className="flex flex-col gap-4">
                 <motion.button
@@ -268,14 +268,14 @@ export const CustomWalletButton = () => {
                   whileHover={{ scale: 0.9 }}
                   whileTap={{ scale: 0.8 }}
                   onClick={() => setOpen(false)}
-                  className="absolute top-4 right-4 text-white text-[30px]"
+                  className="absolute text-[30px] top-4 right-4 text-white hover:text-sol-green"
                 >
                   <IoClose />
                 </motion.button>
 
                 <motion.h1
                   variants={itemVariants}
-                  className="text-center text-[28px] font-semibold text-white"
+                  className="text-center text-[28px] font-semibold text-sol-green"
                 >
                   Connect Wallet
                 </motion.h1>
@@ -286,7 +286,7 @@ export const CustomWalletButton = () => {
                     whileTap={{ scale: 0.85 }}
                     key={wallet.adapter.name}
                     onClick={() => handleWalletSelect(wallet.adapter.name)}
-                    className="flex bg-black items-center py-4 px-6 text-white hover:text-sol-green w-full border-2 border-white rounded-xl"
+                    className="flex bg-gray-900 items-center py-4 px-6 text-white hover:text-sol-green w-full border-2 border-white rounded-xl"
                   >
                     <Image
                       src={wallet.adapter.icon}
