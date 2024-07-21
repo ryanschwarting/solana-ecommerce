@@ -22,11 +22,11 @@ function Footer() {
   const dataSocial = [
     { link: "https://x.com/KaktosSol", icon: <FaXTwitter size={24} /> },
 
-    {
-      link: "https://www.linkedin.com/in/ryanschwarting/",
-      icon: <FaLinkedinIn size={24} />,
-    },
-    { link: "https://github.com/ryanschwarting", icon: <FaGithub size={24} /> },
+    // {
+    //   link: "https://www.linkedin.com/in/ryanschwarting/",
+    //   icon: <FaLinkedinIn size={24} />,
+    // },
+    // { link: "https://github.com/ryanschwarting", icon: <FaGithub size={24} /> },
   ];
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
