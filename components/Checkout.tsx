@@ -273,7 +273,7 @@ export const CartCheckout: React.FC = () => {
                 <motion.button
                   whileHover={{ scale: 0.9 }}
                   whileTap={{ scale: 0.8 }}
-                  className="flex justify-center border-2 border-white hover:border-sol-green bg-black text-white py-3 px-10 text-[28px] font-normal rounded-full shadow-2xl"
+                  className="flex justify-center border-2 border-white hover:border-sol-green bg-gray-900 text-white py-3 px-10 text-[28px] font-normal rounded-full shadow-2xl"
                 >
                   Keep Shopping
                 </motion.button>
