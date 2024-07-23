@@ -48,7 +48,9 @@ export default function RootLayout({
       <body className="px-28 min-h-screen flex flex-col bg-black">
         <AppWalletProvider>
           <ShoppingCartProvider>
-            <main className="flex-grow">{children}</main>
+            <main className="flex-grow max-w-screen-2xl mx-auto">
+              {children}
+            </main>
             {/* <Footer /> */}
           </ShoppingCartProvider>
         </AppWalletProvider>
