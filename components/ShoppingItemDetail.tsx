@@ -1,6 +1,6 @@
 "use client";
 import { useShoppingCart } from "../context/shoppingCart";
-import { FaPlus, FaMinus } from "react-icons/fa";
+import { FaPlus, FaMinus, FaTimes } from "react-icons/fa";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { SiSolana } from "react-icons/si";
 import { useEffect, useState } from "react";
@@ -8,12 +8,14 @@ import { assets } from "@/constants/images";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { getSolPrice } from "../utils/solPrice"; // Adjust the path as needed
+import { getSolPrice } from "../utils/solPrice";
 import { NavBar } from "./NavBar";
 import Footer from "./Footer";
+import { ImEnlarge } from "react-icons/im";
 
 export default function ShoppingItemDetail() {
   const [solPrice, setSolPrice] = useState<number | null>(null);
+  const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -39,15 +41,18 @@ export default function ShoppingItemDetail() {
 
   const quantity = getItemQuantity(matchingAsset.id);
 
-  // const parallaxVariants = {
-  //   hidden: { opacity: 0, y: 20 },
-  //   visible: { opacity: 1, y: 0, transition: { duration: 1.0 } },
-  // };
-
   const solEquivalent =
     solPrice !== null
       ? (matchingAsset.price / solPrice).toFixed(2)
       : "Loading...";
+
+  const handleEnlargeImage = (image: string) => {
+    setEnlargedImage(image);
+  };
+
+  const handleCloseEnlarge = () => {
+    setEnlargedImage(null);
+  };
 
   return (
     <>
@@ -56,12 +61,7 @@ export default function ShoppingItemDetail() {
       </div>
 
       <div className="flex justify-center h-full py-10 overflow-y-auto no-scrollbar bg-black">
-        <motion.div
-          className="flex justify-center items-center mt-2"
-          // variants={parallaxVariants}
-          // initial="hidden"
-          // animate="visible"
-        >
+        <motion.div className="relative flex justify-center items-center mt-2">
           <Image
             width={500}
             height={500}
@@ -69,57 +69,35 @@ export default function ShoppingItemDetail() {
             alt={matchingAsset.name}
             className="rounded-xl mr-10"
           />
+          <motion.button
+            whileHover={{ scale: 0.9 }}
+            whileTap={{ scale: 0.8 }}
+            onClick={() => handleEnlargeImage(matchingAsset.image)}
+            className="absolute bottom-4 right-14 text-black"
+          >
+            <ImEnlarge size={24} />
+          </motion.button>
         </motion.div>
 
-        {/* Display name, price, and Add to Cart functionality */}
         <div className="flex justify-center flex-col ml-12 space-y-5 text-white w-[500px]">
-          <motion.p
-            className="text-[36px] font-semibold"
-            // variants={parallaxVariants}
-            // initial="hidden"
-            // animate="visible"
-          >
+          <motion.p className="text-[36px] font-semibold">
             {matchingAsset.name}
           </motion.p>
 
-          <motion.p
-            className="flex text-[24px] font-medium items-center"
-            // variants={parallaxVariants}
-            // initial="hidden"
-            // animate="visible"
-            // transition={{ delay: 0.5 }}
-          >
+          <motion.p className="flex text-[24px] font-medium items-center">
             <span className="mr-1">
               <SiSolana />
             </span>
             {solEquivalent} SOL{" "}
             <span className="ml-1 text-gray-400">(${matchingAsset.price})</span>
           </motion.p>
-          <motion.hr
-            // variants={parallaxVariants}
-            // initial="hidden"
-            // animate="visible"
-            // transition={{ delay: 0.7 }}
-            className="w-full border-t-2 border-sol-green my-2"
-          />
+          <motion.hr className="w-full border-t-2 border-sol-green my-2" />
 
-          <motion.p
-            className="text-[18px] font-medium flex items-center"
-            // variants={parallaxVariants}
-            // initial="hidden"
-            // animate="visible"
-            // transition={{ delay: 0.6 }}
-          >
+          <motion.p className="text-[18px] font-medium flex items-center">
             {matchingAsset.description}
           </motion.p>
-          {/* Add to Cart Functionality */}
-          <motion.div
-            className="flex gap-2 pt-4"
-            // variants={parallaxVariants}
-            // initial="hidden"
-            // animate="visible"
-            // transition={{ delay: 0.7 }}
-          >
+
+          <motion.div className="flex gap-2 pt-4">
             {quantity === 0 ? (
               <motion.button
                 whileHover={{ scale: 0.9 }}
@@ -136,7 +114,7 @@ export default function ShoppingItemDetail() {
                   <motion.button
                     whileHover={{ scale: 0.9 }}
                     whileTap={{ scale: 0.8 }}
-                    className="bg-gray-900 text-white  px-4 rounded-xl"
+                    className="bg-gray-900 text-white px-4 rounded-xl"
                     onClick={() => decreaseCartQuantity(matchingAsset.id)}
                   >
                     <FaMinus />
@@ -159,6 +137,28 @@ export default function ShoppingItemDetail() {
         </div>
       </div>
       <Footer />
+
+      {enlargedImage && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50">
+          <div className="relative">
+            <Image
+              src={enlargedImage}
+              width={800}
+              height={800}
+              alt="Enlarged Product"
+              className="object-cover rounded-xl text-black"
+            />
+            <motion.button
+              whileHover={{ scale: 0.9 }}
+              whileTap={{ scale: 0.8 }}
+              onClick={handleCloseEnlarge}
+              className="absolute top-2 right-2 text-black"
+            >
+              <FaTimes size={24} />
+            </motion.button>
+          </div>
+        </div>
+      )}
     </>
   );
 }
