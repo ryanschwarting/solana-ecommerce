@@ -45,6 +45,7 @@
 import { Hero } from "@/components/Hero";
 import { LandingPage } from "../components/LandingPage";
 import { NavBar } from "@/components/NavBar";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -57,6 +58,7 @@ export default function Home() {
       <div className="flex justify-center w-full min-h-screen">
         <LandingPage />
       </div>
+      <Footer />
     </main>
   );
 }

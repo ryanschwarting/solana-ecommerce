@@ -25,6 +25,7 @@ import transferSolana from "@/utils/solana-transfer";
 import { useWallet } from "@solana/wallet-adapter-react";
 import PurchaseModal from "./PurchaseModal";
 import FailureModal from "./FailureModal";
+import Footer from "./Footer";
 
 if (process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY === undefined) {
   throw new Error("NEXT_PUBLIC_STRIPE_PUBLIC_KEY is not defined");
@@ -282,6 +283,7 @@ export const CartCheckout: React.FC = () => {
             </div>
           </div>
         </div>
+        <Footer />
       </>
     );
   }
@@ -656,6 +658,8 @@ export const CartCheckout: React.FC = () => {
       {transactionStatus === "failure" && (
         <FailureModal isOpen={isModalOpen} onClose={handleCloseModal} />
       )}
+
+      <Footer />
     </>
   );
 };

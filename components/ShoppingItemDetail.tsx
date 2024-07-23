@@ -10,6 +10,7 @@ import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { getSolPrice } from "../utils/solPrice"; // Adjust the path as needed
 import { NavBar } from "./NavBar";
+import Footer from "./Footer";
 
 export default function ShoppingItemDetail() {
   const [solPrice, setSolPrice] = useState<number | null>(null);
@@ -157,6 +158,7 @@ export default function ShoppingItemDetail() {
           </motion.div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

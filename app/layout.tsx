@@ -49,7 +49,7 @@ export default function RootLayout({
         <AppWalletProvider>
           <ShoppingCartProvider>
             <main className="flex-grow">{children}</main>
-            <Footer />
+            {/* <Footer /> */}
           </ShoppingCartProvider>
         </AppWalletProvider>
       </body>
