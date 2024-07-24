@@ -3,6 +3,7 @@ import { NavBar } from "@/components/NavBar";
 import React, { useState } from "react";
 import { IoMdArrowDropright } from "react-icons/io";
 import { motion } from "framer-motion";
+import Footer from "@/components/Footer";
 
 export default function Pages() {
   const [formState, setFormState] = useState({
@@ -70,7 +71,7 @@ export default function Pages() {
         <NavBar />
       </div>
 
-      <div className="flex flex-col md:flex-row justify-center  space-y-4 md:space-y-0 md:space-x-8 pt-10">
+      <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-8 pt-10">
         <div className="flex flex-col p-4 md:p-0 lg:p-0 items-center space-y-4 md:space-y-0 md:items-start">
           <h2 className="font-poppins text-white font-medium md:text-[32px] text-[24px] pb-4 relative">
             Write Me
@@ -210,6 +211,7 @@ export default function Pages() {
           </form>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

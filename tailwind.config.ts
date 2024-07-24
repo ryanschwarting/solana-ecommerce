@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      maxWidth: {
+        custom: "1400px", // Custom maximum width
+      },
       colors: {
         "sol-purple": "#9945FF",
         "sol-green": "#14F195",
