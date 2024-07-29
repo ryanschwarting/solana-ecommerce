@@ -73,7 +73,6 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({
         <div className="mt-2">
           <a
             href={`https://explorer.solana.com/tx/${transactionSignature}?cluster=devnet`}
-            // href={`https://solscan.io/tx/${transactionSignature}?cluster=devnet`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-sol-green underline"
