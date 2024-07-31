@@ -14,6 +14,7 @@ interface PurchaseModalProps {
   transactionSignature: string;
 }
 
+// sol and usdc transaction success modal
 const PurchaseModal: React.FC<PurchaseModalProps> = ({
   isOpen,
   onClose,
