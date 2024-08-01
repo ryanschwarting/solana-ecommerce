@@ -116,13 +116,24 @@ import Image from "next/image";
 import { assets } from "@/constants/productData";
 import { useSearchParams } from "next/navigation"; // Import hook
 
-export default function PaymentSuccess() {
-  const { cartItems, clearCart } = useShoppingCart();
-  const searchParams = useSearchParams(); // Use hook to get URL params
+// export default function PaymentSuccess() {
+//   const { cartItems, clearCart } = useShoppingCart();
+//   const searchParams = useSearchParams(); // Use hook to get URL params
 
-  const amount = searchParams.get("amount");
-  const subtotal = searchParams.get("subtotal");
-  const shipping = searchParams.get("shipping");
+//   const amount = searchParams.get("amount");
+//   const subtotal = searchParams.get("subtotal");
+//   const shipping = searchParams.get("shipping");
+
+//   const handleKeepShopping = () => {
+//     clearCart();
+//   };
+
+export default function PaymentSuccess({
+  searchParams: { amount, subtotal, shipping },
+}: {
+  searchParams: { amount: string; subtotal: number; shipping: number };
+}) {
+  const { cartItems, clearCart } = useShoppingCart();
 
   const handleKeepShopping = () => {
     clearCart();
