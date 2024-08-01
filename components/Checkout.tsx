@@ -67,7 +67,7 @@ const CartCheckoutInner: React.FC<{
       clientSecret,
       confirmParams: {
         // return_url: `http://localhost:3000/payment-success?amount=${amount}`,
-        return_url: `http://https://solana-ecommerce-o1qe-fmrpc1rz6-ryan-schwartings-projects.vercel.app//payment-success?amount=${amount}`,
+        return_url: `https://solana-ecommerce-o1qe-fmrpc1rz6-ryan-schwartings-projects.vercel.app//payment-success?amount=${amount}`,
       },
     });
 
