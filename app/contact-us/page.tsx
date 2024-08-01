@@ -74,15 +74,15 @@ export default function Pages() {
       <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-8 pt-10">
         <div className="flex flex-col p-4 md:p-0 lg:p-0 items-center space-y-4 md:space-y-0 md:items-start">
           <h2 className="font-poppins text-white font-medium md:text-[32px] text-[24px] pb-4 relative">
-            Write Me
+            Contact us{" "}
             <span className="absolute left-0 bottom-[0px] md:left-5 md:bottom-[8px] w-[100px] h-[2px] bg-[#14F195]"></span>
           </h2>
-          <a
+          {/* <a
             href="mailto:0xKaktos@gmail.com"
             className="text-[#14F195] pt-8 inline-block underline text-[14px] tracking-tight transform transition-transform duration-300 hover:scale-95"
           >
             0xKaktos@gmail.com
-          </a>
+          </a> */}
         </div>
 
         <div className="flex flex-col w-full p-4 md:p-4 lg:p-0 md:w-[530px] md:h-[786px]">
@@ -172,7 +172,7 @@ export default function Pages() {
                 className="p-2 rounded-xl w-full h-[44px] text-sol-green bg-gray-900"
               />
             </div>
-            <div className="w-full">
+            <div className="w-full z-50">
               <label
                 className="block text-white mb-2 font-medium text-[12px] lg:text-[14px]"
                 htmlFor="message"
@@ -202,7 +202,7 @@ export default function Pages() {
                 type="submit"
                 className="bg-[#14F195] text-black py-2 px-6 h-[44px] rounded-full flex items-center"
               >
-                <span className="mr-2 font-medium text-[12px] lg:text-[12px]">
+                <span className="mr-2 font-medium text-[12px] lg:text-[14px]">
                   Submit
                 </span>
                 <IoMdArrowDropright />

@@ -7,7 +7,7 @@ import { FaPlus, FaMinus, FaTimes } from "react-icons/fa";
 import { SiSolana } from "react-icons/si";
 import { BsCreditCardFill } from "react-icons/bs";
 import { FaTrashAlt } from "react-icons/fa";
-import { assets } from "@/constants/images";
+import { assets } from "@/constants/productData";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { getSolPrice } from "../utils/solPrice";

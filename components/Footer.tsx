@@ -137,7 +137,7 @@ function Footer() {
         </div>
         <div className="flex flex-row justify-between items-center border-t-2 pt-4 border-sol-green">
           <p className="text-white text-[14px] md:text-[14px] sm:mb-0 mr-2">
-            &copy; 2024 Kaktos. All rights reserved.
+            &copy; 2024 Crypto Store. All rights reserved.
           </p>
           <div className="text-white text-[12px] justify-center space-x-4">
             <ul className="flex space-x-6">

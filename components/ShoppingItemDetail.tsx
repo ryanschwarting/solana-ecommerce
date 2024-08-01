@@ -4,7 +4,7 @@ import { FaPlus, FaMinus, FaTimes } from "react-icons/fa";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { SiSolana } from "react-icons/si";
 import { useEffect, useState } from "react";
-import { assets } from "@/constants/images";
+import { assets } from "@/constants/productData";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";

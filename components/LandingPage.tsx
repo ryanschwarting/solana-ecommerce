@@ -1,6 +1,6 @@
 "use client";
 import { ShoppingItem } from "./ShoppingItem";
-import { assets } from "../constants/images";
+import { assets } from "../constants/productData";
 import Link from "next/link";
 import "../css/hologramStyles.css";
 
@@ -10,12 +10,12 @@ export const LandingPage = () => {
       <h1 className="mb-8 text-[52px] font-semibold">Store</h1>
       <div className="flex justify-between mb-5 text-[20px]">
         <div>
-          <h3 className="limitedDesignText font-light text-[18px]">
+          <h3 className="limitedDesignText font-light text-[18px] text-sol-green">
             Limited Designs
           </h3>
         </div>
         <div>
-          <h3 className="font-light text-[18px]">
+          <h3 className="font-light text-[18px] text-sol-green">
             Buy with Solana, USDC or Credit Card
           </h3>
         </div>
