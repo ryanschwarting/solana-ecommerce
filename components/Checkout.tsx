@@ -389,6 +389,16 @@ export const CartCheckout: React.FC = () => {
                     ))}
                   </select>
                 </div>
+                <div className="w-1/2">
+                  <label className="block text-sm font-medium">
+                    Postal Code
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full px-4 py-2 bg-gray-900 text-sol-green rounded-xl"
+                    disabled={isFormSubmitted}
+                  />
+                </div>
               </div>
 
               <div>
