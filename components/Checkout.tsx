@@ -66,7 +66,8 @@ const CartCheckoutInner: React.FC<{
       elements,
       clientSecret,
       confirmParams: {
-        return_url: `http://localhost:3000/payment-success?amount=${amount}`,
+        // return_url: `http://localhost:3000/payment-success?amount=${amount}`,
+        return_url: `http://https://solana-ecommerce-o1qe-fmrpc1rz6-ryan-schwartings-projects.vercel.app//payment-success?amount=${amount}`,
       },
     });
 
@@ -86,9 +87,9 @@ const CartCheckoutInner: React.FC<{
               whileHover={{ scale: 0.9 }}
               whileTap={{ scale: 0.8 }}
               onClick={handleClose}
-              className="absolute top-1 right-2 text-black mb-10 hover:text-sol-green"
+              className="absolute top-1 right-1 text-black mb-10 hover:text-sol-green"
             >
-              <FaTimes size={20} />
+              <FaTimes size={15} />
             </motion.button>
             <form onSubmit={handlePayment}>
               {clientSecret && <PaymentElement />}
