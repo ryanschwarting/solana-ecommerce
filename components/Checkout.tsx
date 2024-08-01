@@ -2033,6 +2033,9 @@ export const CartCheckout: React.FC = () => {
           paymentMethod={paymentMethod}
           totalSOL={totalSOL}
           transactionSignature={transactionSignature}
+          shippingCost={shippingCost}
+          subtotalUSD={subtotalUSD}
+          subtotalSOL={subtotalSOL}
         />
       )}
 

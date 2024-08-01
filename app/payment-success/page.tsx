@@ -130,13 +130,13 @@ export default function PaymentSuccess() {
 
   return (
     <main className="flex justify-center items-center min-h-screen max-w-6xl mx-auto text-white text-center bg-black my-2">
-      <div className="mb-10 bg-gray-900 p-10 w-full rounded-xl ">
-        <h1 className="text-2xl font-bold mb-2 text-sol-green pb-5 ">
+      <div className="mb-10 p-10 w-full rounded-xl border-2 border-sol-green shadow-2xl shadow-sol-green ">
+        <h1 className="text-lg font-bold mb-2 text-sol-green pb-2">
           Payment successful
         </h1>
-        <h2 className="text-4xl font-bold">Thanks for ordering!</h2>
+        <h2 className="text-3xl font-bold">Thank you for your purchase!</h2>
         <div className="flex justify-center">
-          <h2 className="text-lg font-medium w-[500px] text-center py-4">
+          <h2 className="text-md font-medium w-full md:w-[440px] text-center py-4">
             We appreciate your order, we’re currently processing it. So hang
             tight and we’ll send you confirmation very soon!
           </h2>
@@ -179,27 +179,27 @@ export default function PaymentSuccess() {
                     </div>
                   </div>
 
-                  <div className="flex justify-center items-center text-xl font-medium">
+                  <div className="flex justify-center items-center text-lg font-medium">
                     ${totalProductPrice}
                   </div>
                 </div>
-                <hr className="border-t-2 border-sol-green my-2 w-full md:w-[500px] mx-auto" />
+                <hr className="border-t-2 border-sol-green w-full md:w-[500px] mx-auto" />
               </>
             );
           })}
         </div>
         <div className="flex flex-col w-full md:w-[500px] mx-auto">
           <div className="flex justify-between text-white mt-4 font-medium px-2">
-            <span className="text-lg">Subtotal:</span>
-            <span className="text-xl">${subtotal}</span>
+            <span className="text-md">Subtotal:</span>
+            <span className="text-lg">${subtotal}</span>
           </div>
-          <div className="flex justify-between text-white mt-4 font-medium px-2">
-            <span className="text-lg">Shipping:</span>
-            <span className="text-xl">${shipping}</span>
+          <div className="flex justify-between text-white mt-2 font-medium px-2">
+            <span className="text-md">Shipping:</span>
+            <span className="text-lg">${shipping}</span>
           </div>
           <hr className="border-t-2 border-sol-green my-2 w-full md:w-[500px] mx-auto" />
           <div className="flex justify-between text-sol-green mt-2 font-bold px-2">
-            <span className="text-2xl">Total:</span>
+            <span className="text-xl">Total:</span>
             <span className="text-xl">${amount}</span>
           </div>
         </div>
@@ -209,7 +209,7 @@ export default function PaymentSuccess() {
             whileHover={{ scale: 0.9 }}
             whileTap={{ scale: 0.8 }}
             onClick={handleKeepShopping}
-            className="mt-10 text-white p-3 rounded-xl font-medium text-lg border-2 border-white hover:border-sol-green"
+            className="bg-gray-900 mt-10 text-white p-3 rounded-xl font-medium text-lg border-2 border-white hover:border-sol-green"
           >
             Continue shopping
           </motion.button>
