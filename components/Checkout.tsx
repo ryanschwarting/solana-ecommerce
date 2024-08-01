@@ -578,9 +578,9 @@ export const CartCheckout: React.FC = () => {
                 <div className="flex justify-start font-medium text-[16px] mt-4 text-white">
                   Shipping: ${shippingCost}
                 </div>
-                <div className="flex justify-start font-medium text-[16px] mt-4 text-white">
+                {/* <div className="flex justify-start font-medium text-[16px] mt-4 text-white">
                   Tax:
-                </div>
+                </div> */}
                 <hr className="border-t-2 border-sol-green my-4"></hr>
                 <div className="flex justify-start font-medium text-[18px] mt-4 text-sol-purple">
                   Order Total: {totalSOL} SOL (${orderTotalUSD.toFixed(2)})
