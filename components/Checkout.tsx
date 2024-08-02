@@ -928,7 +928,7 @@ export const CartCheckout: React.FC = () => {
 
       const response = await fetch(
         // "http://localhost:3000/api/create-payment-intent",
-        "http://solana-ecommerce-o1qe.vercel.app/api/create-payment-intent",
+        "https://solana-ecommerce-o1qe.vercel.app/api/create-payment-intent",
         {
           method: "POST",
           headers: {
