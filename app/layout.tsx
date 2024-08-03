@@ -6,6 +6,7 @@ import { NavBar } from "../components/NavBar";
 import { Poppins } from "next/font/google";
 import Footer from "../components/Footer";
 import { ShoppingCartProvider } from "../context/shoppingCart";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const font = Poppins({
   subsets: [],
@@ -49,6 +50,7 @@ export default function RootLayout({
         <AppWalletProvider>
           <ShoppingCartProvider>
             <main className="flex-grow max-w-custom w-full mx-auto px-4">
+              <SpeedInsights />
               {children}
             </main>
             {/* <Footer /> */}

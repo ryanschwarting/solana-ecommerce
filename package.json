@@ -18,6 +18,7 @@
     "@solana/web3.js": "^1.95.0",
     "@stripe/react-stripe-js": "^2.7.3",
     "@stripe/stripe-js": "^4.1.0",
+    "@vercel/speed-insights": "^1.0.12",
     "bs58": "^6.0.0",
     "countries-list": "^3.1.0",
     "framer-motion": "^11.3.2",
