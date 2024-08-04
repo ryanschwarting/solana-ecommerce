@@ -75,7 +75,7 @@ export default function Pages() {
         <div className="flex flex-col p-4 md:p-0 lg:p-0 items-center space-y-4 md:space-y-0 md:items-start">
           <h2 className="font-poppins text-white font-medium md:text-[32px] text-[24px] pb-4 relative">
             Contact us{" "}
-            <span className="absolute left-0 bottom-[0px] md:left-5 md:bottom-[8px] w-[100px] h-[2px] bg-[#14F195]"></span>
+            <span className="absolute left-0 bottom-[0px] md:left-5 md:bottom-[8px] w-[100px] h-[2px] bg-sol-green"></span>
           </h2>
           {/* <a
             href="mailto:0xKaktos@gmail.com"
@@ -192,7 +192,7 @@ export default function Pages() {
 
             <div className="w-full flex flex-col items-end md:flex-row md:justify-between space-y-4 md:space-y-0">
               {submitted && (
-                <div className="w-[160px] h-[32px] flex justify-center items-center font-semibold text-[12px] lg:text-[12px] text-[#14F195] bg-[#9945FF] border-l-2 border-l-[#14F195]">
+                <div className="w-[160px] h-[32px] flex justify-center items-center font-semibold text-[12px] lg:text-[12px] text-sol-green bg-sol-purple border-l-2 border-l-sol-green">
                   Submitted Successfully!
                 </div>
               )}
@@ -200,7 +200,7 @@ export default function Pages() {
                 whileHover={{ scale: 0.9 }}
                 whileTap={{ scale: 0.8 }}
                 type="submit"
-                className="bg-[#14F195] text-black py-2 px-6 h-[44px] rounded-full flex items-center"
+                className="bg-sol-green text-black py-2 px-6 h-[44px] rounded-full flex items-center"
               >
                 <span className="mr-2 font-medium text-[12px] lg:text-[14px]">
                   Submit

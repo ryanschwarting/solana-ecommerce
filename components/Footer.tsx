@@ -110,7 +110,7 @@ function Footer() {
 
           <div className="w-full lg:w-1/3">
             <h2 className="ml-0 md:ml-1 font-normal text-white text-[14px] tracking-tight leading-[20px]">
-              Sign up to recieve news and updates.
+              The latest deals and savings, sent to your inbox.
             </h2>
             <form
               onSubmit={handleSubmit}
@@ -125,7 +125,7 @@ function Footer() {
               />
               <button
                 type="submit"
-                className="bg-[#14F195] text-black font-medium text-[14px] leading-[24px] tracking-tight px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-95"
+                className="bg-sol-green text-black font-medium text-[14px] leading-[24px] tracking-tight px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-95"
               >
                 Sign Up
               </button>
