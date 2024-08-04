@@ -318,7 +318,7 @@ export const POST = async (request: any) => {
 
     const session = await stripe.checkout.sessions.create({
       shipping_address_collection: {
-        allowed_countries: ["US", "CA"],
+        allowed_countries: ["US", "CA", "MX"],
       },
       shipping_options: [
         {
