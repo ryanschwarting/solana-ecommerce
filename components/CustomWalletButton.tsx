@@ -181,17 +181,17 @@ export const CustomWalletButton = () => {
               whileHover={{ scale: 0.9 }}
               whileTap={{ scale: 0.8 }}
               onClick={() => setOpen(true)}
-              className="text-sm md:text-md ] font-medium border-2 border-white hover:border-2 hover:border-sol-green  text-white py-2 px-4 w-[200px] rounded-xl"
+              className="text-sm md:text-md ] font-medium border-2 border-white hover:border-2 hover:border-sol-green  text-white py-2 px-4 w-[220px] rounded-xl"
             >
               {connecting ? "Connecting..." : "Connect Wallet"}
             </motion.button>
           </>
         ) : (
-          <div className="relative " ref={dropdownRef}>
+          <div className="relative items-center " ref={dropdownRef}>
             <motion.button
               whileHover={{ scale: 0.9 }}
               whileTap={{ scale: 0.8 }}
-              className="flex text-sm md:text-md font-medium border-2 border-white hover:border-2 hover:border-sol-green text-white py-2 px-4 w-[200px] rounded-xl items-center"
+              className="flex text-sm md:text-sm font-medium border-2 border-white hover:border-2 hover:border-sol-green text-white py-2 px-4 w-[220px] rounded-xl items-center"
               onClick={() => setDropdownOpen(!dropdownOpen)}
             >
               {selectedWalletIcon && (
@@ -200,33 +200,33 @@ export const CustomWalletButton = () => {
                   alt="Wallet Icon"
                   height={24}
                   width={24}
-                  className="ml-4"
+                  className="mx-2"
                 />
               )}
-              <div className="truncate md:w-[150px] w-[100px]">
+              <div className="truncate md:w-[80px] w-[100px] text-sm">
                 {publicKey.toBase58().slice(0, 4)}..
                 {publicKey.toBase58().slice(-4)}
               </div>
-              {/* <div>
+              <div className="text-sm flex flex-wrap ml-1 text-sol-green">
                 {balance !== null ? (
                   <div>{toFixed(balance, 2)} SOL</div>
                 ) : (
                   <div>0 SOL</div>
                 )}
-              </div> */}
+              </div>
             </motion.button>
 
             <motion.div
               initial={false}
               animate={dropdownOpen ? "open" : "closed"}
               variants={dropdownVariants}
-              className="absolute bg-gray-900 text-white border-2 border-white font-medium text-center text-[14px] w-[200px] mt-1 rounded-xl z-50 "
+              className="absolute bg-gray-900 text-white border-2 border-white font-medium text-center text-[14px] w-[220px] mt-1 rounded-xl z-50 "
             >
               <motion.button
                 variants={itemVariants}
                 whileHover={{ scale: 0.9 }}
                 whileTap={{ scale: 0.8 }}
-                className="px-4 py-4 hover:text-sol-green"
+                className="px-4 py-3 hover:text-sol-green text-xs"
                 onClick={handleCopyAddress}
               >
                 {copyText}
@@ -235,7 +235,7 @@ export const CustomWalletButton = () => {
                 variants={itemVariants}
                 whileHover={{ scale: 0.9 }}
                 whileTap={{ scale: 0.8 }}
-                className="px-4 py-4 hover:text-sol-green"
+                className="px-4 py-3 hover:text-sol-green text-xs"
                 onClick={() => setOpen(true)}
               >
                 Change wallet
@@ -244,7 +244,7 @@ export const CustomWalletButton = () => {
                 variants={itemVariants}
                 whileHover={{ scale: 0.9 }}
                 whileTap={{ scale: 0.8 }}
-                className="px-4 py-4 hover:text-sol-green"
+                className="px-4 py-3 hover:text-sol-green text-xs"
                 onClick={handleDisconnect}
               >
                 Disconnect

@@ -2338,7 +2338,7 @@ export const CartCheckout: React.FC = () => {
               </h2>
               <div className="px-10">
                 <div>
-                  <label className="block text-xs font-medium text-white">
+                  <label className="block text-xs font-medium text-white mb-1">
                     Email
                   </label>
                   <input
@@ -2352,7 +2352,7 @@ export const CartCheckout: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-white">
+                  <label className="block text-xs font-medium text-white mb-1">
                     Street Address
                   </label>
                   <input
@@ -2366,7 +2366,7 @@ export const CartCheckout: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-white">
+                  <label className="block text-xs font-medium text-white mb-1">
                     Apartment, Suite, etc (optional)
                   </label>
                   <input
@@ -2380,7 +2380,7 @@ export const CartCheckout: React.FC = () => {
                 </div>
                 <div className="flex space-x-4">
                   <div className="w-1/2">
-                    <label className="block text-xs font-medium text-white">
+                    <label className="block text-xs font-medium text-white mb-1">
                       City
                     </label>
                     <input
@@ -2394,7 +2394,7 @@ export const CartCheckout: React.FC = () => {
                     />
                   </div>
                   <div className="w-1/2">
-                    <label className="block text-xs font-medium text-white">
+                    <label className="block text-xs font-medium text-white mb-1">
                       Province / State
                     </label>
                     <input
@@ -2410,7 +2410,7 @@ export const CartCheckout: React.FC = () => {
                 </div>
                 <div className="flex space-x-4">
                   <div className="w-1/2 ">
-                    <label className="block text-xs font-medium text-white">
+                    <label className="block text-xs font-medium text-white mb-1">
                       Country
                     </label>
                     <select
@@ -2429,7 +2429,7 @@ export const CartCheckout: React.FC = () => {
                     </select>
                   </div>
                   <div className="w-1/2">
-                    <label className="block text-xs font-medium text-white">
+                    <label className="block text-xs font-medium text-white mb-1">
                       Postal Code
                     </label>
                     <input
@@ -2443,7 +2443,7 @@ export const CartCheckout: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-white">
+                  <label className="block text-xs font-medium text-white mb-1">
                     Phone Number
                   </label>
                   <input
@@ -2494,7 +2494,7 @@ export const CartCheckout: React.FC = () => {
                         </span>
                       </div>
                       <hr className="border-t-2 border-sol-green my-2" />
-                      <div className="flex justify-between text-sm font-medium text-sol-purple mb-2">
+                      <div className="flex justify-between text-md font-medium text-sol-purple mb-2">
                         <span>Total:</span>
                         <span>
                           {totalSOL} SOL (${orderTotalUSD.toFixed(2)})
@@ -2509,7 +2509,7 @@ export const CartCheckout: React.FC = () => {
                         whileTap={{ scale: 0.8 }}
                         onClick={handleSolanaClick}
                         disabled={!connected || isTransactionPending}
-                        className={`w-[200px] text-sm md:text-md flex items-center font-medium justify-center text-white bg-black rounded-xl py-2 px-4 border-2 border-white hover:border-sol-green ${
+                        className={`w-[220px] text-sm md:text-md flex items-center font-medium justify-center text-white bg-black rounded-xl py-2 px-4 border-2 border-white hover:border-sol-green ${
                           !connected || isTransactionPending
                             ? "opacity-50 cursor-not-allowed"
                             : ""
@@ -2525,7 +2525,7 @@ export const CartCheckout: React.FC = () => {
                         whileTap={{ scale: 0.8 }}
                         onClick={handleUsdcClick}
                         disabled={!connected || isTransactionPending}
-                        className={`w-[200px] text-sm md:text-md flex items-center font-medium justify-center text-white bg-black rounded-xl py-2 px-4 border-2 border-white hover:border-sol-green ${
+                        className={`w-[220px] text-sm md:text-md flex items-center font-medium justify-center text-white bg-black rounded-xl py-2 px-4 border-2 border-white hover:border-sol-green ${
                           !connected || isTransactionPending
                             ? "opacity-50 cursor-not-allowed"
                             : ""
@@ -2541,7 +2541,6 @@ export const CartCheckout: React.FC = () => {
                 </div>
               </div>
             )}
-
             {isFormSubmitted && !connected && (
               <div className="text-center text-sm font-medium text-sol-purple mt-2 italic">
                 Connect Solana Wallet to Pay in SOL/USDC
