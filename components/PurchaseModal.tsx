@@ -39,8 +39,8 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
-      <div className="bg-black p-6 rounded-lg max-w-lg w-full relative border-2 border-sol-green shadow-2xl shadow-sol-green">
+    <div className="fixed inset-0 bg-black bg-opacity-90 flex justify-center items-center z-50">
+      <div className="bg-black p-6 rounded-lg w-full md:max-w-[1000px] h-full md:max-h-[700px] relative border-2 border-sol-green shadow-2xl shadow-sol-green overflow-hidden overflow-y-auto px-10">
         <motion.button
           whileHover={{ scale: 0.9 }}
           whileTap={{ scale: 0.8 }}
@@ -50,10 +50,10 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({
           <FaTimes size={20} />
         </motion.button>
         <div className="flex flex-col justify-center">
-          <h2 className="text-center text-sol-green text-2xl font-bold">
+          <h2 className="text-center text-sol-green text-3xl font-bold">
             Thank you for your purchase!
           </h2>
-          <h2 className="text-sm font-medium text-center py-4 text-white w-full md:w-[350px] mx-auto">
+          <h2 className="text-sm font-medium text-center py-4 text-white w-full md:w-[450px] mx-auto">
             We appreciate your order, we’re currently processing it. So hang
             tight and we’ll send you confirmation very soon!
           </h2>
@@ -68,23 +68,23 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({
                   width={50}
                   height={50}
                   alt={item.name}
-                  className="w-12 h-12 object-cover rounded-md"
+                  className="w-20 h-20 object-cover rounded-md"
                 />
                 <div className="ml-4 text-white">
-                  <div className="font-bold text-md">{item.name}</div>
-                  <div className="font-medium text-xs">
+                  <div className="font-bold text-lg">{item.name}</div>
+                  <div className="font-medium text-sm">
                     Quantity: {item.quantity}
                   </div>
                 </div>
               </div>
-              <div className="text-white font-medium text-sm ">
+              <div className="text-white font-medium text-md ">
                 ${(item.price * item.quantity).toFixed(2)}
               </div>
             </div>
             <hr className="border-t-2 border-sol-green my-2 w-full" />
           </>
         ))}
-        <div className="flex justify-between font-medium text-sm text-white">
+        <div className="flex justify-between font-medium text-md text-white">
           <div>Subtotal:</div>
           <div>
             {paymentMethod === "SOL" ? (
@@ -97,14 +97,14 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({
           </div>
         </div>
 
-        <div className="flex justify-between font-medium text-sm text-white">
+        <div className="flex justify-between font-medium text-md text-white">
           <div>Shipping:</div>
           <div>${shippingCost.toFixed(2)}</div>
         </div>
 
         <hr className="border-t-2 border-sol-green my-2 w-full" />
 
-        <div className="flex justify-between font-bold text-md text-white">
+        <div className="flex justify-between font-bold text-lg text-white">
           <div>Total:</div>
           <div>
             {paymentMethod === "SOL" ? (
@@ -122,7 +122,7 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({
             href={`https://explorer.solana.com/tx/${transactionSignature}?cluster=devnet`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sol-green underline text-xs"
+            className="text-sol-green underline text-sm"
           >
             View Transaction
           </a>

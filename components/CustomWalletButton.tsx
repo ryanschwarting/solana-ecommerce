@@ -181,25 +181,25 @@ export const CustomWalletButton = () => {
               whileHover={{ scale: 0.9 }}
               whileTap={{ scale: 0.8 }}
               onClick={() => setOpen(true)}
-              className="text-[12px] md:text-[18px] font-medium border-2 border-white hover:border-2 hover:border-sol-green bg-gray-900 text-white h-[40px] md:h-[60px] w-[200px] rounded-xl"
+              className="text-sm md:text-md ] font-medium border-2 border-white hover:border-2 hover:border-sol-green  text-white py-2 px-4 w-[200px] rounded-xl"
             >
-              {connecting ? "Connecting..." : "Select Wallet"}
+              {connecting ? "Connecting..." : "Connect Wallet"}
             </motion.button>
           </>
         ) : (
-          <div className="relative" ref={dropdownRef}>
+          <div className="relative " ref={dropdownRef}>
             <motion.button
               whileHover={{ scale: 0.9 }}
               whileTap={{ scale: 0.8 }}
-              className="flex bg-gray-900 text-[12px] md:text-[18px] font-medium border-2 border-white hover:border-2 hover:border-sol-green text-white h-[40px] md:h-[60px] w-[200px] rounded-xl items-center"
+              className="flex text-sm md:text-md font-medium border-2 border-white hover:border-2 hover:border-sol-green text-white py-2 px-4 w-[200px] rounded-xl items-center"
               onClick={() => setDropdownOpen(!dropdownOpen)}
             >
               {selectedWalletIcon && (
                 <Image
                   src={selectedWalletIcon}
                   alt="Wallet Icon"
-                  height={30}
-                  width={30}
+                  height={24}
+                  width={24}
                   className="ml-4"
                 />
               )}

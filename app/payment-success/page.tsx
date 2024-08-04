@@ -33,7 +33,7 @@ export default function PaymentSuccess({
         <h2 className="text-xl py-4 font-medium">
           Order ID: <span className="text-sol-green">1425271812829</span>
         </h2>
-        <hr className="border-t-2 border-sol-green mb-2 w-full md:w-[500px] mx-auto" />
+        <hr className="border-t-2 border-sol-green mb-2 w-full md:w-[700px] mx-auto" />
 
         <div className="mt-4 gap-4 flex flex-col items-center">
           {cartItems.map((cartItem) => {
@@ -45,10 +45,10 @@ export default function PaymentSuccess({
 
             return (
               <>
-                <div className="flex justify-between w-full md:w-[500px] px-2">
+                <div className="flex justify-between w-full md:w-[700px] px-2">
                   <div
                     key={cartItem.id}
-                    className="flex flex-row items-start gap-4 w-full md:w-[500px]"
+                    className="flex flex-row items-start gap-4 w-full md:w-[700px]"
                   >
                     <Image
                       src={matchingAsset.image}
@@ -68,25 +68,25 @@ export default function PaymentSuccess({
                     </div>
                   </div>
 
-                  <div className="flex justify-center items-center text-lg font-medium">
+                  <div className="flex justify-center items-center text-xl font-medium">
                     ${totalProductPrice}
                   </div>
                 </div>
-                <hr className="border-t-2 border-sol-green w-full md:w-[500px] mx-auto" />
+                <hr className="border-t-2 border-sol-green w-full md:w-[700px] mx-auto" />
               </>
             );
           })}
         </div>
-        <div className="flex flex-col w-full md:w-[500px] mx-auto">
+        <div className="flex flex-col w-full md:w-[700px] mx-auto">
           <div className="flex justify-between text-white mt-4 font-medium px-2">
-            <span className="text-md">Subtotal:</span>
+            <span className="text-lg">Subtotal:</span>
             <span className="text-lg">${subtotal}</span>
           </div>
           <div className="flex justify-between text-white mt-2 font-medium px-2">
-            <span className="text-md">Shipping:</span>
+            <span className="text-lg">Shipping:</span>
             <span className="text-lg">${shipping}</span>
           </div>
-          <hr className="border-t-2 border-sol-green my-2 w-full md:w-[500px] mx-auto" />
+          <hr className="border-t-2 border-sol-green my-2 w-full md:w-[700px] mx-auto" />
           <div className="flex justify-between text-sol-green mt-2 font-bold px-2">
             <span className="text-xl">Total:</span>
             <span className="text-xl">${amount}</span>
