@@ -222,7 +222,7 @@ export const CustomWalletButton = () => {
               variants={dropdownVariants}
               className="absolute bg-gray-900 text-white border-2 border-white font-medium text-center text-[14px] w-[220px] mt-1 rounded-xl z-50 "
             >
-              <motion.button
+              {/* <motion.button
                 variants={itemVariants}
                 whileHover={{ scale: 0.9 }}
                 whileTap={{ scale: 0.8 }}
@@ -230,12 +230,12 @@ export const CustomWalletButton = () => {
                 onClick={handleCopyAddress}
               >
                 {copyText}
-              </motion.button>
+              </motion.button> */}
               <motion.button
                 variants={itemVariants}
                 whileHover={{ scale: 0.9 }}
                 whileTap={{ scale: 0.8 }}
-                className="px-4 py-3 hover:text-sol-green text-xs"
+                className="px-4 py-4 hover:text-sol-green text-xs"
                 onClick={() => setOpen(true)}
               >
                 Change wallet
@@ -244,7 +244,7 @@ export const CustomWalletButton = () => {
                 variants={itemVariants}
                 whileHover={{ scale: 0.9 }}
                 whileTap={{ scale: 0.8 }}
-                className="px-4 py-3 hover:text-sol-green text-xs"
+                className="px-4 py-4 hover:text-sol-green text-xs"
                 onClick={handleDisconnect}
               >
                 Disconnect
