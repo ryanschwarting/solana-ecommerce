@@ -134,7 +134,6 @@ export default function PaymentSuccess({
       setIsConfettiActive(false);
     }, 5000);
 
-    // Cleanup timer
     return () => clearTimeout(timer);
   }, []);
 

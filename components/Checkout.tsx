@@ -120,8 +120,8 @@ export const CartCheckout: React.FC = () => {
       }
 
       const response = await fetch(
-        // `http://localhost:3000/api/create-payment-intent?amount=${orderTotalUSD}&subtotal=${subtotalUSD}&shipping=${shippingCost}`,
-        `https://solana-ecommerce-o1qe.vercel.app/api/create-payment-intent?amount=${orderTotalUSD}&subtotal=${subtotalUSD}&shipping=${shippingCost}`,
+        `http://localhost:3000/api/create-payment-intent?amount=${orderTotalUSD}&subtotal=${subtotalUSD}&shipping=${shippingCost}`,
+        // `https://solana-ecommerce-o1qe.vercel.app/api/create-payment-intent?amount=${orderTotalUSD}&subtotal=${subtotalUSD}&shipping=${shippingCost}`,
 
         {
           method: "POST",

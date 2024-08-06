@@ -344,10 +344,10 @@ export const POST = async (request: any) => {
       ],
       line_items: stripeItems,
       mode: "payment",
-      // success_url: `http://localhost:3000/payment-success?amount=${orderTotalUSD}&subtotal=${subtotalUSD}&shipping=${shippingCost}`,
-      success_url: `https://solana-ecommerce-o1qe.vercel.app/payment-success?amount=${orderTotalUSD}&subtotal=${subtotalUSD}&shipping=${shippingCost}`,
-      // cancel_url: "http://localhost:3000/cancel",
-      cancel_url: "https://solana-ecommerce-o1qe.vercel.app/cancel",
+      success_url: `http://localhost:3000/payment-success?amount=${orderTotalUSD}&subtotal=${subtotalUSD}&shipping=${shippingCost}`,
+      // success_url: `https://solana-ecommerce-o1qe.vercel.app/payment-success?amount=${orderTotalUSD}&subtotal=${subtotalUSD}&shipping=${shippingCost}`,
+      cancel_url: "http://localhost:3000/cancel",
+      // cancel_url: "https://solana-ecommerce-o1qe.vercel.app/cancel",
       automatic_tax: { enabled: true },
     });
 
